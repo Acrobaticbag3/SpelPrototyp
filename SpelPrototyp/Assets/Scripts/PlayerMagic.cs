@@ -24,6 +24,7 @@ public class PlayerMagic : MonoBehaviour
             Debug.Log("D");
             castingMagic = true;
             currentCastTimer = 0f;
+            CastSpell();
         }
 
         if(castingMagic)
