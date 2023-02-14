@@ -21,11 +21,10 @@ public class Movement : MonoBehaviour {
     private float vertical;
     private float horizontal;
 
-    private void Awake() {
-        camera.fieldOfView = 80;   
-    }
+    public CapsuleCollider col;
 
     void Start() {
+        camera.fieldOfView = 80;
         rb = GetComponent<Rigidbody>(); 
     }  
 
@@ -62,5 +61,11 @@ public class Movement : MonoBehaviour {
         }
 
         transform.Translate(translation: cameraRelativeMovement * speed, relativeTo: Space.World);
+
+        if(Input.GetButton("Crouch")) {
+            col.height = Mathf.Max(0.6f, col.height - Time.deltaTime * 10.0f); 
+        } else {
+            col.height = Mathf.Min(1.8f, col.height + Time.deltaTime * 10.0f);
+        }
     }
 }
