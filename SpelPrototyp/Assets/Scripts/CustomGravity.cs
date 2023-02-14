@@ -1,3 +1,7 @@
+/*
+    The type of jumping that we are using 
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
