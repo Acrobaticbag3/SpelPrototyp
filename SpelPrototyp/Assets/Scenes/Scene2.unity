@@ -201,7 +201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801112861
 GameObject:
@@ -286,7 +286,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1801112865
 MonoBehaviour:
@@ -321,71 +321,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1001 &1863760021
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 147200351631406572, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_Name
-      value: Spell_MagicMissile
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.441545
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.7339244
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200351631406575, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200352489909556, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: ShapeModule.angle
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200352489909556, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-      propertyPath: ShapeModule.arc.mode
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
 --- !u!1 &2053098676
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +357,8 @@ MonoBehaviour:
   maxMana: 100
   currentMana: 0
   manaRegen: 5
-  timeBetweenCast: 0.5
+  manaRegenTimer: 0
+  timeBetweenManaRegren: 2
   castPoint: {fileID: 630948155}
 --- !u!136 &2053098678
 CapsuleCollider:
@@ -502,7 +438,7 @@ Transform:
   m_Children:
   - {fileID: 630948155}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087818257
 GameObject:
