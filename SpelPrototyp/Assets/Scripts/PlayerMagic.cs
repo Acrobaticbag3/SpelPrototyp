@@ -5,43 +5,64 @@ using UnityEngine;
 public class PlayerMagic : MonoBehaviour
 {
 
-    [SerializeField] private Spells SpellToCast;
+    [SerializeField] private Spells spellToCast;
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRegen = 5f;
-    [SerializeField] private float timeBetweenCast = 2f;
-    private float currentCastTimer;
+    [SerializeField]private float manaRegenTimer;
+    [SerializeField]private float timeBetweenManaRegren = 2f;
+   
 
+    private float timeBetweenCast = 0.5f;
+    private float currentCastTimer;
     private bool castingMagic = false;
 
     [SerializeField] private Transform castPoint;
 
 
+    private void Awake() 
+    {
+        currentMana = maxMana;
+    }
     private void Update() 
     {
-        if(!castingMagic && Input.GetButtonDown("CastSpell"))
-        {
-            Debug.Log("D");
+        bool hasMana = currentMana - spellToCast.SpellToCast.ManaCost >= 0f;
+        currentCastTimer += Time.deltaTime;
+        manaRegenTimer += Time.deltaTime;
+
+        if(!castingMagic && Input.GetButtonDown("CastSpell") && hasMana)
+        {     
             castingMagic = true;
-            currentCastTimer = 0f;
+            currentMana -= spellToCast.SpellToCast.ManaCost;
             CastSpell();
         }
 
         if(castingMagic)
-        {
-            currentCastTimer += Time.deltaTime;
-
+        {    
             if(currentCastTimer > timeBetweenCast)
             {
                 castingMagic = false;
-            } 
+            }
         }
+
+        if(currentMana < maxMana)
+        {
+            if(manaRegenTimer > timeBetweenManaRegren)
+            {
+                currentMana += manaRegen * Time.deltaTime;
+                currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+            }
+        }
+        
     }
 
     void CastSpell()
     {
-        Instantiate(SpellToCast, castPoint.position, castPoint.rotation);
+        currentCastTimer = 0;
+        manaRegenTimer = 0;
+        Instantiate(spellToCast, castPoint.position, castPoint.rotation);
     }
+    
 }
 
 
