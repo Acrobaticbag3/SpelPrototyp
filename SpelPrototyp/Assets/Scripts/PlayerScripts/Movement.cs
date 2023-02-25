@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        
         float verticalPlayerInput = Input.GetAxisRaw(axisName: "Vertical");             // Gets vertical input.
         float horizontalPlayerInput = Input.GetAxisRaw(axisName: "Horizontal");         // Gets horizontal input.
 

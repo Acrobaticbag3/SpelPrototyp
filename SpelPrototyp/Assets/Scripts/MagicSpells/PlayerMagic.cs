@@ -9,11 +9,9 @@ public class PlayerMagic : MonoBehaviour
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRegen = 5f;
-    [SerializeField]private float manaRegenTimer;
-    [SerializeField]private float timeBetweenManaRegren = 2f;
+    [SerializeField] private float manaRegenTimer;
+    [SerializeField] private float timeBetweenManaRegren = 2f;
    
-
-    private float timeBetweenCast = 0.5f;
     private float currentCastTimer;
     private bool castingMagic = false;
 
@@ -30,7 +28,7 @@ public class PlayerMagic : MonoBehaviour
         currentCastTimer += Time.deltaTime;
         manaRegenTimer += Time.deltaTime;
 
-        if(!castingMagic && Input.GetButtonDown("CastSpell") && hasMana)
+        if(!castingMagic && Input.GetButton("CastSpell") && hasMana)
         {     
             castingMagic = true;
             currentMana -= spellToCast.SpellToCast.ManaCost;
@@ -39,7 +37,7 @@ public class PlayerMagic : MonoBehaviour
 
         if(castingMagic)
         {    
-            if(currentCastTimer > timeBetweenCast)
+            if(currentCastTimer > spellToCast.SpellToCast.timeBetweenCast)
             {
                 castingMagic = false;
             }

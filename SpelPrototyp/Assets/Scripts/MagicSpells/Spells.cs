@@ -15,8 +15,6 @@ public class Spells : MonoBehaviour
     {
         myCollider = GetComponent<SphereCollider>();
         myCollider.isTrigger = true;
-        myCollider.radius = SpellToCast.SpellRadius;
-
         myRigidBody = GetComponent<Rigidbody>();
         myRigidBody.isKinematic = true;
 
