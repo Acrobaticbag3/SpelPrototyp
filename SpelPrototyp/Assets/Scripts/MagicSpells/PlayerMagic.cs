@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PlayerMagic : MonoBehaviour
 {
-
-    [SerializeField] private Spells spellToCast;
-    [SerializeField] private float maxMana = 100f;
-    [SerializeField] private float currentMana;
-    [SerializeField] private float manaRegen = 5f;
-    [SerializeField] private float manaRegenTimer;
-    [SerializeField] private float timeBetweenManaRegren = 2f;
+    [SerializeField] private Spells spellToCast; //Detta är spellen som castas detta ska vara samma sak som den activa spellen i spells listan 
+    private float maxMana = 100f;
+    private float currentMana;
+    private float manaRegen = 5f;
+    private float manaRegenTimer;
+    private float timeBetweenManaRegren = 2f;
    
     private float currentCastTimer;
     private bool castingMagic = false;
 
     [SerializeField] private Transform castPoint;
+
+
+    public List<Spells> spellList = new List<Spells>();
 
 
     private void Awake() 
@@ -51,10 +53,28 @@ public class PlayerMagic : MonoBehaviour
                 currentMana = Mathf.Clamp(currentMana, 0, maxMana);
             }
         }
-        
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SwitchSpell();
+        }  
     }
 
-    void CastSpell()
+
+    private void SwitchSpell()
+    {
+
+        for(var i = 0; i <spellList.Count; i++)
+        {
+            spellToCast = spellList[i++];
+        }
+
+        /*
+        spellToCast = spellList[0];
+        */
+    }
+
+    private void CastSpell()
     {
         currentCastTimer = 0;
         manaRegenTimer = 0;

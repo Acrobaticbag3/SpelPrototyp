@@ -260,13 +260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cceb228f28640f1408df77c94fa8b615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellToCast: {fileID: 5294710722457905523, guid: d79ad138a3e7b6a459ad82387880b2c5, type: 3}
-  maxMana: 100
-  currentMana: 0
-  manaRegen: 5
-  manaRegenTimer: 0
-  timeBetweenManaRegren: 2
+  spellToCast: {fileID: 8230293957038204545, guid: fd61c907f385c794c93e1356207d0383, type: 3}
   castPoint: {fileID: 923983825}
+  spellList:
+  - {fileID: 1862395911500341566, guid: 4e52c319093b9684daa3fb9a075d8a26, type: 3}
+  - {fileID: 8230293957038204545, guid: fd61c907f385c794c93e1356207d0383, type: 3}
 --- !u!1001 &1752457260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -368,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3003978342631649997, guid: 9405521398e772b45a97c17baff7a008, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 3003978342631649997, guid: 9405521398e772b45a97c17baff7a008, type: 3}
       propertyPath: m_LocalRotation.w
