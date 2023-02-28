@@ -28,8 +28,10 @@ public class Movement : MonoBehaviour {
         rb = GetComponent<Rigidbody>(); 
     }  
 
-    void Update() {                                                     // Jumping.
+    void Update() {                           
+        // Jumping.
         if(Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0) {
+            if(Time.timeScale == 0.0f) return;
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
     }

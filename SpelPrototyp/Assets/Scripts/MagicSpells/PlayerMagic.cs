@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMagic : MonoBehaviour
 {
     [SerializeField] private Spells spellToCast; //Detta är spellen som castas detta ska vara samma sak som den activa spellen i spells listan 
     private float maxMana = 100f;
     private float currentMana;
-    private float manaRegen = 5f;
+    private float manaRegen = 7.5f;
     private float manaRegenTimer;
     private float timeBetweenManaRegren = 2f;
+
+    [SerializeField] private Slider manaBar;
 
     private float currentCastTimer;
     private bool castingMagic = false;
@@ -20,17 +23,26 @@ public class PlayerMagic : MonoBehaviour
 
     [SerializeField] private GameObject SpellCircle;
     private bool swtichingSpells = false;
+    [SerializeField] private Button MagicMissileButton;
+    [SerializeField] private Button FireBallButton;
+
 
     private void Awake()
     {
+      
         currentMana = maxMana;
         SpellCircle.SetActive(false);
+
+        Button Missile = MagicMissileButton.GetComponent<Button>();
+        Button Fire = FireBallButton.GetComponent<Button>();
     }
+
     private void Update()
     {
         bool hasMana = currentMana - spellToCast.SpellToCast.ManaCost >= 0f;
         currentCastTimer += Time.deltaTime;
         manaRegenTimer += Time.deltaTime;
+        manaBar.value = currentMana;
 
         if (!castingMagic && Input.GetButton("CastSpell") && hasMana)
         {
@@ -57,18 +69,17 @@ public class PlayerMagic : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.H))
-        {
+        {      
             if (swtichingSpells == true)
-            {
-                StopSwitchSpell();
-            }
-            else
-            {
-                SwitchSpell();
-            }
+                {
+                    StopSwitchSpell();
+                }
+                else
+                {
+                    SwitchSpell();
+                }
         }
     }
-
     private void SwitchSpell()
     {
         SpellCircle.SetActive(true);
@@ -85,6 +96,15 @@ public class PlayerMagic : MonoBehaviour
         Time.timeScale = 1; //bug when jumping, bulids momentum when paused
         Cursor.visible = false;
         swtichingSpells = false;
+    }
+
+    public void FireBallClicked()
+    {
+        spellToCast = spellList[0];  
+    }
+    public void MagicMissileClicked()
+    {
+        spellToCast = spellList[1];  
     }
 
     private void CastSpell()
