@@ -48,12 +48,12 @@ public class CameraController : MonoBehaviour {
 
         xAxisRot = Mathf.Clamp(value: xAxisRot, min: -clampAngle, max: clampAngle * 3);
 
-        transform.position = target.transform.position - (transform.forward * targetDistance);
-        // transform.position = Vector3.SmoothDamp(target.transform.position, transform.forward * targetDistance, ref velocity, smoothTime);
+        transform.eulerAngles = new Vector3(-mouseAxisX, transform.eulerAngles.y + mouseAxisY, 0);
 
         Quaternion localRotation = Quaternion.Euler(x: xAxisRot, y: yAxisRot, z: 0.0f);
         transform.rotation = localRotation;
-        // Vector3.SmoothDamp(localRotation.eulerAngles);
+
+        transform.position = target.transform.position - (transform.forward * targetDistance);
 
         #endregion
     }

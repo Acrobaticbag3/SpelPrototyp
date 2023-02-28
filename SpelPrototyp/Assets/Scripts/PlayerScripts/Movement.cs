@@ -11,16 +11,21 @@ public class Movement : MonoBehaviour {
     public Transform transform;
     public Camera camera;
 
-    public float speed = 4f;
-    public float sprintSpeed = 9f;
+    // Ground movement \\
+    public float speed = 200f;
+    public float sprintSpeed = 300f;
+    private float stamina = 100;
 
+    // Jumping and gravity \\
     public float jumpHeight = 1;
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
 
+    // Axis for movement \\
     private float vertical;
     private float horizontal;
 
+    // Colider \\
     public CapsuleCollider col;
 
     void Start() {
@@ -28,16 +33,17 @@ public class Movement : MonoBehaviour {
         rb = GetComponent<Rigidbody>(); 
     }  
 
-    void Update() {                           
-        // Jumping.
-        if(Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0) {
-            if(Time.timeScale == 0.0f) return;
-            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+    void Update() { // Jumping.
+    if(Time.TImescale = 0.0f)
+        {
+            if(Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && stamina != 0) {
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                stamina = stamina - 20;
+            }
         }
     }
 
     void FixedUpdate() {
-        
         float verticalPlayerInput = Input.GetAxisRaw(axisName: "Vertical");             // Gets vertical input.
         float horizontalPlayerInput = Input.GetAxisRaw(axisName: "Horizontal");         // Gets horizontal input.
 
@@ -55,15 +61,18 @@ public class Movement : MonoBehaviour {
         Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment.
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;
-        if(Input.GetKey(key: KeyCode.LeftShift)) { // Sprinting.
+        
+        if (Input.GetKey(key: KeyCode.LeftShift) && stamina != 0) {
             speed = sprintSpeed;
-            camera.fieldOfView = 90;  
+            camera.fieldOfView = 90; 
+            stamina = stamina - 3;
 
         } else {
+            stamina++;
             camera.fieldOfView = 80;  
         }
 
-        transform.Translate(translation: cameraRelativeMovement * speed, relativeTo: Space.World);
+        transform.Translate(translation: cameraRelativeMovement * speed * Time.deltaTime, relativeTo: Space.World);
 
         if(Input.GetButton("Crouch")) {
             col.height = Mathf.Max(0.6f, col.height - Time.deltaTime * 10.0f); 
