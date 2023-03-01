@@ -5,8 +5,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
-public class Movement : MonoBehaviour {
+
+public class Movement : MonoBehaviour
+{
     private Rigidbody rb;
     public Transform transform;
     public Camera camera;
@@ -28,27 +29,36 @@ public class Movement : MonoBehaviour {
     // Colider \\
     public CapsuleCollider col;
 
-    void Start() {
+    void Start()
+    {
         camera.fieldOfView = 80;
-        rb = GetComponent<Rigidbody>(); 
-    }  
-
-    void Update() { // Jumping.
-        if(GameManager.isPaused == false | GameManager.swtichingSpells == false)
-        {
-            if(Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && stamina != 0) {
-                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-                stamina = stamina - 20;
-            }
-        } 
+        rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate() {
+    void Update()
+    {   // Everything after this code stops when paused 
+        // if code wants to be run even if pasued put before
+        if (GameManager.isPaused || GameManager.swtichingSpells)
+        {
+            return;
+        } 
+        
+        //Jumping
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && stamina != 0)
+        {
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            stamina = stamina - 20;
+        }
+
+    }
+
+    void FixedUpdate()
+    {
         float verticalPlayerInput = Input.GetAxisRaw(axisName: "Vertical");             // Gets vertical input.
         float horizontalPlayerInput = Input.GetAxisRaw(axisName: "Horizontal");         // Gets horizontal input.
 
-        Vector3 forward = transform.InverseTransformVector (vector: Camera.main.transform.forward);
-        Vector3 right = transform.InverseTransformVector (vector: Camera.main.transform.right);
+        Vector3 forward = transform.InverseTransformVector(vector: Camera.main.transform.forward);
+        Vector3 right = transform.InverseTransformVector(vector: Camera.main.transform.right);
 
         forward.y = 0;
         right.y = 0;
@@ -61,22 +71,28 @@ public class Movement : MonoBehaviour {
         Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment.
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;
-        
-        if (Input.GetKey(key: KeyCode.LeftShift) && stamina != 0) {
+
+        if (Input.GetKey(key: KeyCode.LeftShift) && stamina != 0)
+        {
             speed = sprintSpeed;
-            camera.fieldOfView = 90; 
+            camera.fieldOfView = 90;
             stamina = stamina - 3;
 
-        } else {
+        }
+        else
+        {
             stamina++;
-            camera.fieldOfView = 80;  
+            camera.fieldOfView = 80;
         }
 
         transform.Translate(translation: cameraRelativeMovement * speed * Time.deltaTime, relativeTo: Space.World);
 
-        if(Input.GetButton("Crouch")) {
-            col.height = Mathf.Max(0.6f, col.height - Time.deltaTime * 10.0f); 
-        } else {
+        if (Input.GetButton("Crouch"))
+        {
+            col.height = Mathf.Max(0.6f, col.height - Time.deltaTime * 10.0f);
+        }
+        else
+        {
             col.height = Mathf.Min(1.8f, col.height + Time.deltaTime * 10.0f);
         }
     }

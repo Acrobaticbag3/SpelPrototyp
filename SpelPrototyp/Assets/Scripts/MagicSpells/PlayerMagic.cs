@@ -43,6 +43,24 @@ public class PlayerMagic : MonoBehaviour
         manaRegenTimer += Time.deltaTime;
         manaBar.value = currentMana;
 
+         if (Input.GetKeyDown(KeyCode.H))
+        {      
+            if (GameManager.swtichingSpells == true)
+                {
+                    StopSwitchSpell();
+                }
+                else
+                {
+                    SwitchSpell();
+                }
+        }
+        // Everything after this code stops when paused 
+        // if code wants to be run even if pasued put before
+        if (GameManager.isPaused || GameManager.swtichingSpells)
+        {
+            return;
+        }
+
         if (!castingMagic && Input.GetButton("CastSpell") && hasMana)
         {
             castingMagic = true;
@@ -67,17 +85,7 @@ public class PlayerMagic : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {      
-            if (GameManager.swtichingSpells == true)
-                {
-                    StopSwitchSpell();
-                }
-                else
-                {
-                    SwitchSpell();
-                }
-        }
+       
     }
     private void SwitchSpell()
     {
