@@ -5,48 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {   
-    
-    private static GameManager instance;
+    public static bool isPaused = false;
+    public static bool swtichingSpells = false;
 
-    public static GameManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = new GameManager();
-            }
-
-            return instance;
-        }
-    }
-
-    public GameState CurrentGameState { get; private set; }
-
-    public delegate void GameStateChangeHandler(GameState newGameState);
-
-    public event GameStateChangeHandler OnGameStateChanged;
-    private GameManager()
-    {
-
-    }
-
-    public void SetState(GameState newGameState)
-    {
-        if (newGameState == CurrentGameState)
-        {
-            return;
-        }
-        CurrentGameState = newGameState;
-        OnGameStateChanged?.Invoke(newGameState);
-    }
-
-}
-
-public enum GameState
-{
-    GamePlay,
-    Paused,
-    SwitchSpell,
-    Die
 }

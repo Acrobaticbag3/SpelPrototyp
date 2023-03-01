@@ -22,7 +22,6 @@ public class PlayerMagic : MonoBehaviour
     public List<Spells> spellList = new List<Spells>();
 
     [SerializeField] private GameObject SpellCircle;
-    private bool swtichingSpells = false;
     [SerializeField] private Button MagicMissileButton;
     [SerializeField] private Button FireBallButton;
 
@@ -70,7 +69,7 @@ public class PlayerMagic : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {      
-            if (swtichingSpells == true)
+            if (GameManager.swtichingSpells == true)
                 {
                     StopSwitchSpell();
                 }
@@ -85,7 +84,7 @@ public class PlayerMagic : MonoBehaviour
         SpellCircle.SetActive(true);
         Time.timeScale = 0f;
         Cursor.visible = true;
-        swtichingSpells = true;
+        GameManager.swtichingSpells = true;
         /*
         spellToCast = spellList[0];
         */
@@ -93,9 +92,9 @@ public class PlayerMagic : MonoBehaviour
     private void StopSwitchSpell()
     {
         SpellCircle.SetActive(false);
-        Time.timeScale = 1; //bug when jumping, bulids momentum when paused
+        Time.timeScale = 1; 
         Cursor.visible = false;
-        swtichingSpells = false;
+        GameManager.swtichingSpells = false;
     }
 
     public void FireBallClicked()

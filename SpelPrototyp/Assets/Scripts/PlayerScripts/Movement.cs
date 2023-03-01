@@ -34,13 +34,13 @@ public class Movement : MonoBehaviour {
     }  
 
     void Update() { // Jumping.
-    if(Time.TImescale = 0.0f)
+        if(GameManager.isPaused == false | GameManager.swtichingSpells == false)
         {
             if(Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && stamina != 0) {
                 rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 stamina = stamina - 20;
             }
-        }
+        } 
     }
 
     void FixedUpdate() {
