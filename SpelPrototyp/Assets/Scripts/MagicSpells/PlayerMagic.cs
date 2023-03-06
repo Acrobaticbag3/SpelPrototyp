@@ -28,7 +28,7 @@ public class PlayerMagic : MonoBehaviour
 
     private void Awake()
     {
-      
+        
         currentMana = maxMana;
         SpellCircle.SetActive(false);
 

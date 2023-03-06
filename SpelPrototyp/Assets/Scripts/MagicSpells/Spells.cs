@@ -31,6 +31,10 @@ public class Spells : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
+        if(other.gameObject.TryGetComponent<EnemyManager>(out EnemyManager enemyComponent))
+        {
+            enemyComponent.TakeDamage(SpellToCast.Damage);
+        }
         //SpellEffect
         //Sound
         //Particle
