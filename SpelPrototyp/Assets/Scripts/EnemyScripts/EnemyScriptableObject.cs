@@ -10,8 +10,7 @@ public class EnemyScriptableObject : ScriptableObject
     public float Range;
     public float Speed;
 
-    //Exp
-    //whatever
+    public int exp;
 }
 
     
