@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
     private float sprintSpeed = 400f;
 
     // Stammina and stammina regen \\
-    private float currentStamina = 100;
+    private float currentStamina = 500;
     [SerializeField] private RawImage staminaBar;
     
     // Jumping and gravity \\
@@ -27,8 +27,6 @@ public class Movement : MonoBehaviour {
 
     // Colider \\
     public CapsuleCollider col;
-
-    
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -67,8 +65,8 @@ public class Movement : MonoBehaviour {
         Vector3 forwardRelativeVerticalInput = verticalPlayerInput * -transform.forward * Time.fixedDeltaTime;         // Fixes relative movment for vertical movment. Note -transform is a temp fix
         Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * -transform.right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment. Note -transform is a temp fix
 
-        Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;
-        Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z); 
+        Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
+        Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);       
         transform.LookAt(targetPosition);
 
         if (Input.GetKey(key: KeyCode.LeftShift) && currentStamina != 0) {
