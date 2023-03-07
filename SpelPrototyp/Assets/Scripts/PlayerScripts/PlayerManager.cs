@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
     //Caspian
 public class PlayerManager : MonoBehaviour
+    
 {
+    LevelSystem level = new LevelSystem();
     private float maxHealth = 100;
    [SerializeField] private float currHealth;
    [SerializeField] private Slider healthBar;
@@ -18,7 +20,7 @@ public class PlayerManager : MonoBehaviour
     {
         healthBar.value = currHealth;    
     }
-
+    
     public void TakeDamage(float amount)
     {
         currHealth -= amount ;

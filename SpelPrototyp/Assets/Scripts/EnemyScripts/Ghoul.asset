@@ -16,3 +16,4 @@ MonoBehaviour:
   Damage: 10
   Range: 3
   Speed: 150
+  exp: 10
