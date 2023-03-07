@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName  = "New Spell", menuName = "Spells")]
+    //Caspian
+[CreateAssetMenu(menuName = "New Spell")]
 public class SpellScrpitableObject : ScriptableObject
 {   
     public float Damage;

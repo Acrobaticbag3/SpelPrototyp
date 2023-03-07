@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+    //Caspian 
 public class PlayerMagic : MonoBehaviour
 {
     [SerializeField] private Spells spellToCast; //Detta är spellen som castas detta ska vara samma sak som den activa spellen i spells listan 
