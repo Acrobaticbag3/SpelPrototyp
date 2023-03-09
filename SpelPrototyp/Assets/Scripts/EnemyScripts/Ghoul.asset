@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ghoul
   m_EditorClassIdentifier: 
   Health: 35
-  Damage: 10
+  Damage: 1
   Range: 3
   Speed: 150
   exp: 10

@@ -9,4 +9,5 @@ public class WeaponScriptableObjects : ScriptableObject
     public float Damage;
     public string WeaponName;
     public GameObject WeaponPrefab;
+    
 }

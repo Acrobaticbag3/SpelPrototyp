@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
     
     public void TakeDamage(float amount)
     {
-        currHealth -= amount ;
+        currHealth -= amount;
 
         if(currHealth <= 0)
         {

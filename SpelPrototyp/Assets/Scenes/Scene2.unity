@@ -233,6 +233,28 @@ RectTransform:
   m_AnchoredPosition: {x: 1.0999985, y: 0}
   m_SizeDelta: {x: -19.800003, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &135465144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1371443892423311255, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+  m_PrefabInstance: {fileID: 5841066018835299042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cceb228f28640f1408df77c94fa8b615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &135465152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3295630914722524374, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+  m_PrefabInstance: {fileID: 5841066018835299042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a52e21e88fd05b4c9ed5343ad158e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &143132468
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +466,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257841405}
   m_CullTransparentMesh: 1
+--- !u!114 &512587505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4732065423252642742, guid: 98c02cbd140f20946a04399415e02372, type: 3}
+  m_PrefabInstance: {fileID: 1540894471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84d356b9c36bd247958a1817e3b88ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &636968248
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -111.3, y: 32.953}
+  m_AnchoredPosition: {x: -157.2, y: 58.1}
   m_SizeDelta: {x: 85.565, y: 95.835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &636968250
@@ -528,7 +561,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 135465144}
         m_TargetAssemblyTypeName: PlayerMagic, Assembly-CSharp
         m_MethodName: FireBallClicked
         m_Mode: 1
@@ -969,7 +1002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 542, y: -22}
+  m_AnchoredPosition: {x: 542, y: 80}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100550168
@@ -1134,7 +1167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.5338, y: 111.3}
+  m_AnchoredPosition: {x: -3.5338, y: 165.6}
   m_SizeDelta: {x: 122.1674, y: 60.8596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182288879
@@ -1181,7 +1214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 135465144}
         m_TargetAssemblyTypeName: PlayerMagic, Assembly-CSharp
         m_MethodName: MagicMissileClicked
         m_Mode: 1
@@ -1384,10 +1417,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghoul
       objectReference: {fileID: 0}
+    - target: {fileID: 4732065423252642735, guid: 98c02cbd140f20946a04399415e02372, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4732065423252642742, guid: 98c02cbd140f20946a04399415e02372, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 135465152}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 98c02cbd140f20946a04399415e02372, type: 3}
@@ -1545,6 +1582,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1703882192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5224618637935787552, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+  m_PrefabInstance: {fileID: 5841066018835299042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1703882196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703882192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ac5d8ab0fea7849931c13163c510f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 11400000, guid: 8c6e0822915498b4d9ed39c4c44d525f, type: 2}
+  Enemy: {fileID: 512587505}
+--- !u!65 &1703882197
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703882192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1.6, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1704401120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1971,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1371443892423311255, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 1317260138}
+    - target: {fileID: 1371443892423311255, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: SpellCircle
+      value: 
+      objectReference: {fileID: 1100550166}
+    - target: {fileID: 1371443892423311255, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: FireBallButton
+      value: 
+      objectReference: {fileID: 636968250}
+    - target: {fileID: 1371443892423311255, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: MagicMissileButton
+      value: 
+      objectReference: {fileID: 1182288879}
     - target: {fileID: 2988542194134683219, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1950,5 +2035,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3295630914722524374, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1130048102}
+    - target: {fileID: 5841066018064975982, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.081
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841066018064975982, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.137
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841066018064975983, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 512587505}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}

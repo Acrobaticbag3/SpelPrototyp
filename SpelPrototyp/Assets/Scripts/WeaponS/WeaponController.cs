@@ -7,6 +7,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {   
     public WeaponScriptableObjects Weapon;
+    public EnemyManager Enemy;
    
     [SerializeField]private bool CanAttack = false;
     [SerializeField]private float AttackCD;
@@ -40,11 +41,5 @@ public class WeaponController : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other) 
-    {
-        if(other.gameObject.TryGetComponent<EnemyManager>(out EnemyManager enemyComponent))
-        {
-            enemyComponent.TakeDamage(Weapon.Damage);
-        }
-    }
+    
 }
