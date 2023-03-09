@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CollisionDetect : MonoBehaviour
 {   
+    public WeaponController wp;
     public WeaponScriptableObjects Weapon;
     public EnemyManager Enemy;
   private void OnTriggerEnter(Collider other) 
     {     
         
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.TryGetComponent<EnemyManager>(out EnemyManager enemyComponent) && wp.isAttacking == true)
         {
-            Enemy.TakeDamage(Weapon.Damage);
-            Debug.Log("Enemy ihy");
+            enemyComponent.TakeDamage(Weapon.Damage);
         }
     }
 }

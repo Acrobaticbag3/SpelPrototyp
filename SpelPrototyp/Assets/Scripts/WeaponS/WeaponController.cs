@@ -6,11 +6,10 @@ using UnityEngine;
     //Caspian
 public class WeaponController : MonoBehaviour
 {   
-    public WeaponScriptableObjects Weapon;
-    public EnemyManager Enemy;
-   
+    
     [SerializeField]private bool CanAttack = false;
     [SerializeField]private float AttackCD;
+    public bool isAttacking = false;
     Animator weaponAnimation;
    
 
@@ -18,6 +17,12 @@ public class WeaponController : MonoBehaviour
     void Update()
     {   
         AttackCD += Time.deltaTime;
+
+
+        if(CanAttack == true)
+        {
+            isAttacking = false;
+        }
 
         if(AttackCD >= 1)
         {
@@ -36,6 +41,7 @@ public class WeaponController : MonoBehaviour
         if(weaponAnimation == null) weaponAnimation = GetComponentInChildren<Animator>();
         CanAttack = false;
         weaponAnimation.SetTrigger("Attack");
+        isAttacking = true;
         //anim.SetTrigger("Attack");
         AttackCD = 0f;
     }
