@@ -62,8 +62,8 @@ public class Movement : MonoBehaviour {
         right = right.normalized;
 
         float speed = this.speed;
-        Vector3 forwardRelativeVerticalInput = verticalPlayerInput * -transform.forward * Time.fixedDeltaTime;         // Fixes relative movment for vertical movment. Note -transform is a temp fix
-        Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * -transform.right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment. Note -transform is a temp fix
+        Vector3 forwardRelativeVerticalInput = verticalPlayerInput * transform.forward * Time.fixedDeltaTime;         // Fixes relative movment for vertical movment. Note -transform is a temp fix
+        Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment. Note -transform is a temp fix
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
         Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);       
