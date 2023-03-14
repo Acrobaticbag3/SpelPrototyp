@@ -5,16 +5,11 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour {
     private Rigidbody rb;
-    public Transform target;
-    public Camera camera;
+    [SerializeField] private Camera camera;
 
     // Ground movement \\
     private float speed = 200f;
     private float sprintSpeed = 400f;
-
-    // Stammina and stammina regen \\
-    private float currentStamina = 500;
-    [SerializeField] private RawImage staminaBar;
     
     // Jumping and gravity \\
     public float jumpHeight = 1;
@@ -26,12 +21,14 @@ public class Movement : MonoBehaviour {
     private float horizontal;
 
     // Colider \\
-    public CapsuleCollider col;
+    [SerializeField] private CapsuleCollider col;
+    
 
     void Start() {
         rb = GetComponent<Rigidbody>();
         camera.fieldOfView = 80;
     }
+
 
     void Update() {   
         // Everything after this code stops when paused 
@@ -41,11 +38,11 @@ public class Movement : MonoBehaviour {
         } 
         
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && currentStamina != 0) {
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0) {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            currentStamina = currentStamina - 20;
         }
-    }
+    } 
+
 
     void FixedUpdate() {
 
@@ -66,16 +63,14 @@ public class Movement : MonoBehaviour {
         Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment. Note -transform is a temp fix
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
-        Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);       
-        transform.LookAt(targetPosition);
+        Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
+        transform.rotation = Quaternion.LookRotation(transform.position - targetPosition);    
 
-        if (Input.GetKey(key: KeyCode.LeftShift) && currentStamina != 0) {
+        if (Input.GetKey(key: KeyCode.LeftShift)) {
             speed = sprintSpeed;
             camera.fieldOfView = 90;
-            currentStamina = currentStamina - 3;
         }
         else {
-            currentStamina++;
             camera.fieldOfView = 80;
         }
 
@@ -88,4 +83,7 @@ public class Movement : MonoBehaviour {
             col.height = Mathf.Min(1.8f, col.height + Time.deltaTime * 10.0f);
         }
     }
+
+    void MoveCamera(){}
+    void MovePlayer(){}
 }

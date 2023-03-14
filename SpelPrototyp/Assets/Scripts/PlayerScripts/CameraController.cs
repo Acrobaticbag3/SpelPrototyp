@@ -10,18 +10,18 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     #region [Veriables]
 
-    public float mouseSensitivity = 30.0f;
+    private float mouseSensitivity = 30.0f;
 
     // Camera variables \\
-    public float clampAngle = 20.0f;
+    private float clampAngle = 20.0f;
     private float yAxisRot = 0.0f;      // rotation around the up/y axis
     private float xAxisRot = 0.0f;      // rotation around the right/x axis
     private float turnSpeed = 5.0f;
 
     public Transform target;
-    public float targetDistance = 2.5f;
+    private float targetDistance = 2.5f;
 
-    public float smoothTime = 0.3F;
+    private float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
 
     #endregion
