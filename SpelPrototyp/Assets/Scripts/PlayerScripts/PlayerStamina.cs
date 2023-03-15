@@ -4,13 +4,19 @@ using UnityEngine;
 using static Movement;
 
 public class PlayerStamina : MonoBehaviour {
-    
-    [SerializeField] private float currentStamina;
-    private float minStamina = 10.0f;
-    private float maxStamina = 100f;
 
+    // Main stamina variables \\
+    [SerializeField] private float _currentStamina;
+    public float getCurrentStamina() { return _currentStamina; }
+    private float _maxStamina = 100f;
+    public float getMaxStamina() { return _maxStamina; }
+    private float minStamina = 10.0f;
+
+    // Stamina regen  \\
     private float staminaRegenAmount = 3.0f;
     private float regenTimerInSeconds = 1.0f;
+
+    // referenscase  \\
     private Movement movement;
 
     public enum Task {
@@ -21,10 +27,11 @@ public class PlayerStamina : MonoBehaviour {
 
     private void Start(){
         movement = GetComponent<Movement>();
+        RectTransform rt;
     }
 
     private void Awake() {
-        currentStamina = maxStamina;
+        _currentStamina = _maxStamina;
     }
 
     // Update is called once per frame
@@ -49,19 +56,19 @@ public class PlayerStamina : MonoBehaviour {
     }
 
     private void Running() {
-        if (currentStamina != minStamina) {
-            currentStamina = currentStamina - 10; 
+        if (_currentStamina != minStamina) {
+            _currentStamina = _currentStamina - 10; 
         }  
     }
 
     private void Jumping() {
-        if (currentStamina != minStamina) {
-            currentStamina = currentStamina - 20;
+        if (_currentStamina != minStamina) {
+            _currentStamina = _currentStamina - 20;
         }
     }
 
     private void Standing() {
-        currentStamina = currentStamina + staminaRegenAmount;
+        _currentStamina = _currentStamina + staminaRegenAmount;
         Wait();
     }
 

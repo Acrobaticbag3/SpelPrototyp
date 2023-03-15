@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour {
     [SerializeField] private Camera camera;
 
     // Ground movement \\
-    private float speed = 200f;
+    private float _speed = 200f;
     private float sprintSpeed = 400f;
     
     // Jumping and gravity \\
@@ -25,10 +25,7 @@ public class Movement : MonoBehaviour {
     // References \\ 
     private Task task;
     public Task Task => task;
-    private float currentStamina = 100;
-    private float minStamina = 100;
-    public float CurrentStamina => currentStamina; 
-    public float MinStamina => minStamina;
+
 
     // Colider \\
     [SerializeField] private CapsuleCollider col;
@@ -46,7 +43,7 @@ public class Movement : MonoBehaviour {
         } 
         
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && currentStamina > minStamina) {
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 ) {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             task = PlayerStamina.Task.jumping;
         }
@@ -57,16 +54,7 @@ public class Movement : MonoBehaviour {
         float verticalPlayerInput = Input.GetAxisRaw(axisName: "Vertical");             // Gets vertical input.
         float horizontalPlayerInput = Input.GetAxisRaw(axisName: "Horizontal");         // Gets horizontal input.
 
-        Vector3 forward = transform.InverseTransformVector(vector: Camera.main.transform.forward);
-        Vector3 right = transform.InverseTransformVector(vector: Camera.main.transform.right);
-/*
-        forward.y = 0;
-        right.y = 0;
-
-        forward = forward.normalized;
-        right = right.normalized;
-*/
-        float speed = this.speed;
+        float speed = this._speed;
         Vector3 forwardRelativeVerticalInput = verticalPlayerInput * transform.forward * Time.fixedDeltaTime;         // Fixes relative movment for vertical movment. Note -transform is a temp fix
         Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment. Note -transform is a temp fix
 
@@ -74,7 +62,7 @@ public class Movement : MonoBehaviour {
         Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
         transform.rotation = Quaternion.LookRotation(transform.position - targetPosition);    
 
-        if (Input.GetKey(key: KeyCode.LeftShift) && currentStamina > minStamina) {
+        if (Input.GetKey(key: KeyCode.LeftShift)) {
             speed = sprintSpeed;
             camera.fieldOfView = 90;
             task = PlayerStamina.Task.running;
@@ -93,11 +81,6 @@ public class Movement : MonoBehaviour {
             col.height = Mathf.Min(1.8f, col.height + Time.deltaTime * 10.0f);
         }
         
-    }
-
-    void MoveCamera(){}
-    void MovePlayer(){
-        MovePlayer();
     }
 
 }
