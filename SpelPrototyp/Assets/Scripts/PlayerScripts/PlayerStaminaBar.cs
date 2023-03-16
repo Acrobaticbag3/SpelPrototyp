@@ -8,18 +8,20 @@ public class PlayerStaminaBar : MonoBehaviour {
     // RawImage \\
     [SerializeField] private Transform rawImage;
     private float rawImageSize;
-    private float convertStaminaToBarSize;
-    
-    private float maxStamina;
-    private float currentStamina;
+    PlayerStamina playerStamina ;
 
     // Start is called before the first frame update
-    void Start() {
-        
+    void Start() {        
+        GameObject player = GameObject.Find("Player");
+        playerStamina = player.GetComponent<PlayerStamina>();
+
     }
 
     // Update is called once per frame
     void Update() {
+        float convertStaminaToBarSize = playerStamina._currentStamina / playerStamina._maxStamina;
+
+        GetComponent<RectTransform>().sizeDelta =  new Vector2(200* convertStaminaToBarSize,50);
         
     }
 

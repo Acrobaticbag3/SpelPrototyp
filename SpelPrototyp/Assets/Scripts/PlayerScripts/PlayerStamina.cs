@@ -6,10 +6,8 @@ using static Movement;
 public class PlayerStamina : MonoBehaviour {
 
     // Main stamina variables \\
-    [SerializeField] private float _currentStamina;
-    public float getCurrentStamina() { return _currentStamina; }
-    private float _maxStamina = 100f;
-    public float getMaxStamina() { return _maxStamina; }
+    public float _currentStamina;
+    public float _maxStamina = 100f;
     private float minStamina = 10.0f;
 
     // Stamina regen  \\
@@ -68,7 +66,9 @@ public class PlayerStamina : MonoBehaviour {
     }
 
     private void Standing() {
-        _currentStamina = _currentStamina + staminaRegenAmount;
+        if (_currentStamina != _maxStamina) {
+            _currentStamina = _currentStamina + staminaRegenAmount;
+        }
         Wait();
     }
 
