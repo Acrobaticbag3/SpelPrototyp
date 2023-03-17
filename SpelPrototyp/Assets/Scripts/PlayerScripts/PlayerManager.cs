@@ -1,8 +1,18 @@
+/*  
+    === === === === === === === === === === === ===
+
+    This script was writen by Caspian. 
+
+    It handles the player and some possible 
+    requests made by the player.
+
+    === === === === === === === === === === === ===
+*/
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-    //Caspian
 public class PlayerManager : MonoBehaviour
     
 {

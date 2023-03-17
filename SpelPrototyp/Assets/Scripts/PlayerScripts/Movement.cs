@@ -1,3 +1,14 @@
+/*  
+    === === === === === === === === === === === ===
+
+    This script was made by kevin.
+    
+    This script handles all movment related stuff
+    for the player itself.
+
+    === === === === === === === === === === === ===
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +36,7 @@ public class Movement : MonoBehaviour {
     // References \\ 
     private Task task;
     public Task Task => task;
-
+    PlayerStamina playerStamina;
 
     // Colider \\
     [SerializeField] private CapsuleCollider col;
@@ -33,6 +44,9 @@ public class Movement : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody>();
         camera.fieldOfView = 80;
+
+        GameObject player = GameObject.Find("Player");
+        playerStamina = player.GetComponent<PlayerStamina>();
     }
 
     void Update() {   
@@ -43,9 +57,11 @@ public class Movement : MonoBehaviour {
         } 
         
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 ) {
-            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            task = PlayerStamina.Task.jumping;
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && playerStamina.suffitiantStamina == true) {
+            while (true) {
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                task = PlayerStamina.Task.jumping;
+            }
         }
     } 
 
@@ -60,9 +76,9 @@ public class Movement : MonoBehaviour {
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
         Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
-        transform.rotation = Quaternion.LookRotation(transform.position - targetPosition);    
+        transform.rotation = Quaternion.LookRotation(transform.position - targetPosition);                       // Make the player look in the direction that the camera is faceing.
 
-        if (Input.GetKey(key: KeyCode.LeftShift)) {
+        if (Input.GetKey(key: KeyCode.LeftShift) && playerStamina.suffitiantStamina == true) {
             speed = sprintSpeed;
             camera.fieldOfView = 90;
             task = PlayerStamina.Task.running;

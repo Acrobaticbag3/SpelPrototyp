@@ -1,9 +1,19 @@
+/*  
+    === === === === === === === === === === === ===
+
+    This script was writen by Caspian
+
+    The objective of this script is to handle the
+    players weapons.
+
+    === === === === === === === === === === === ===
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerStamina;
 
-
-    //Caspian
 public class WeaponController : MonoBehaviour
 {   
     
@@ -11,6 +21,10 @@ public class WeaponController : MonoBehaviour
     [SerializeField]private float AttackCD;
     public bool isAttacking = false;
     Animator weaponAnimation;
+
+    // References \\ 
+    private Task task;
+    public Task Task => task;
    
 
     // Update is called once per frame
@@ -30,7 +44,8 @@ public class WeaponController : MonoBehaviour
         }
 
         if(Input.GetButton("SwordAttack") && CanAttack)
-        {
+        {   
+            task = PlayerStamina.Task.attacking;
             SwordAttack();
         }
     }

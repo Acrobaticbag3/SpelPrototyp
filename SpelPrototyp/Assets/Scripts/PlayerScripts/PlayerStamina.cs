@@ -1,3 +1,16 @@
+/*  
+    === === === === === === === === === === === ===
+
+    This script was made by kevin.
+
+    Here we have a script that handles all
+    stamina related stuff. It also "somewhat"
+    handles stamina requests from other
+    scripts.
+
+    === === === === === === === === === === === ===
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +20,12 @@ public class PlayerStamina : MonoBehaviour {
 
     // Main stamina variables \\
     public float _currentStamina;
-    public float _maxStamina = 100f;
-    private float minStamina = 10.0f;
+    public float _maxStamina = 400;
+    private float _minStamina = 10.0f;
+    public bool suffitiantStamina;
 
     // Stamina regen  \\
-    private float staminaRegenAmount = 3.0f;
+    private float staminaRegenAmount = 0.2f;
     private float regenTimerInSeconds = 1.0f;
 
     // referenscase  \\
@@ -21,11 +35,13 @@ public class PlayerStamina : MonoBehaviour {
         running,
         jumping,
         standing,
+        attacking,
+        // blocking,
     }
 
     private void Start(){
         movement = GetComponent<Movement>();
-        RectTransform rt;
+        // RectTransform rt;
     }
 
     private void Awake() {
@@ -46,30 +62,36 @@ public class PlayerStamina : MonoBehaviour {
             case Task.standing:
                 Standing();
                 break;
-            
-            default:
-                Standing();
+
+            case Task.attacking:
+                Attacking();
                 break;
         }
     }
 
     private void Running() {
-        if (_currentStamina != minStamina) {
-            _currentStamina = _currentStamina - 10; 
+        if (_currentStamina > _minStamina) {
+            _currentStamina = _currentStamina - 1; 
         }  
     }
 
     private void Jumping() {
-        if (_currentStamina != minStamina) {
-            _currentStamina = _currentStamina - 20;
+        if (_currentStamina > _minStamina) {
+            _currentStamina = _currentStamina - 30;
         }
     }
 
     private void Standing() {
-        if (_currentStamina != _maxStamina) {
+        if (_currentStamina < _maxStamina) {
+            Wait();
             _currentStamina = _currentStamina + staminaRegenAmount;
         }
-        Wait();
+    }
+
+    private void Attacking() {
+        if (_currentStamina > _minStamina) {
+            _currentStamina = _currentStamina - 5;
+        }
     }
 
     IEnumerator Wait() {

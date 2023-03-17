@@ -1,5 +1,12 @@
-/*
-    This Script was written by Kevin Johansson.
+/*  
+    === === === === === === === === === === === ===
+
+    This script was made by kevin.
+    
+    As the name states, this script takes care of
+    "most" camera related behaviours.
+
+    === === === === === === === === === === === ===
 */
 
 
@@ -40,8 +47,8 @@ public class CameraController : MonoBehaviour {
     void Update () {
         #region [Body]
 
-        float mouseAxisX = Input.GetAxis(axisName: "Mouse X") * turnSpeed;
-        float mouseAxisY = -Input.GetAxis(axisName: "Mouse Y") * turnSpeed;
+        float mouseAxisX = Input.GetAxis(axisName: "Mouse X") * turnSpeed;      // Turn camera in the appropiate axis
+        float mouseAxisY = -Input.GetAxis(axisName: "Mouse Y") * turnSpeed;     // Turn camera in the appropiate axis
 
         yAxisRot += mouseAxisX * mouseSensitivity * Time.fixedDeltaTime;
         xAxisRot += mouseAxisY * mouseSensitivity * Time.fixedDeltaTime;
@@ -53,7 +60,7 @@ public class CameraController : MonoBehaviour {
         Quaternion localRotation = Quaternion.Euler(x: xAxisRot, y: yAxisRot, z: 0.0f);
         transform.rotation = localRotation;
 
-        transform.position = target.transform.position - (transform.forward * targetDistance);
+        transform.position = target.transform.position - (transform.forward * targetDistance);    // Make sure that the camera is in the right position
 
         #endregion
     }

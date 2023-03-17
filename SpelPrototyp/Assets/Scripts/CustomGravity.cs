@@ -1,5 +1,12 @@
-/*
-    The type of jumping that we are using 
+/*  
+    === === === === === === === === === === === ===
+
+    This script was made by kevin.
+    
+    We had a problem arise with how the player's
+    jumping worked, this script is a work around.
+
+    === === === === === === === === === === === ===
 */
 
 using System.Collections;

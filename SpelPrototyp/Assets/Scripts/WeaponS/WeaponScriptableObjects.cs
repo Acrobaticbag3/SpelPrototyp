@@ -1,6 +1,14 @@
-using UnityEngine;
+/*  
+    === === === === === === === === === === === ===
 
-//Caspian
+    This script was writen by Caspian
+
+    A collection of scriptable objects
+
+    === === === === === === === === === === === ===
+*/
+
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "New Weapon")]
 
