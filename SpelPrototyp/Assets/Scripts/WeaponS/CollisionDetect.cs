@@ -1,3 +1,5 @@
+//Caspian
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +14,7 @@ public class CollisionDetect : MonoBehaviour
         
         if(other.gameObject.TryGetComponent<EnemyManager>(out EnemyManager enemyComponent) && wp.isAttacking == true)
         {
-            enemyComponent.TakeDamage(Weapon.Damage);
+            enemyComponent.TakeDamage(Weapon.Damage * PlayerStats.DamageAmp);
         }
     }
 }

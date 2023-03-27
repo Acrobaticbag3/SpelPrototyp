@@ -12,14 +12,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
     
 {
     LevelSystem level = new LevelSystem();
+ 
     private float maxHealth = 100;
    [SerializeField] private float currHealth;
+   [SerializeField] private float currMaxHealth;
    [SerializeField] private Slider healthBar;
+   [SerializeField] private TextMeshProUGUI healthText;
+
 
 
     private void Awake() 
@@ -28,7 +33,10 @@ public class PlayerManager : MonoBehaviour
     }
     private void Update() 
     {
-        healthBar.value = currHealth;    
+        healthBar.value = currHealth;  
+        currMaxHealth = maxHealth * PlayerStats.HealthAmp;  
+        healthBar.maxValue = currMaxHealth;
+        healthText.text = healthBar.value.ToString();
     }
     
     public void TakeDamage(float amount)

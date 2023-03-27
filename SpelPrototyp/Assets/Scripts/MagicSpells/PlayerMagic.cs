@@ -9,6 +9,7 @@ public class PlayerMagic : MonoBehaviour
     [SerializeField] private Spells spellToCast; //Detta är spellen som castas detta ska vara samma sak som den activa spellen i spells listan 
     private float maxMana = 100f;
     private float currentMana;
+    private float currentMaxMana;
     private float manaRegen = 7.5f;
     private float manaRegenTimer;
     private float timeBetweenManaRegren = 2f;
@@ -43,6 +44,8 @@ public class PlayerMagic : MonoBehaviour
         currentCastTimer += Time.deltaTime;
         manaRegenTimer += Time.deltaTime;
         manaBar.value = currentMana;
+        currentMaxMana = maxMana * PlayerStats.ManaAmp;
+        manaBar.maxValue = currentMaxMana;
 
          if (Input.GetKeyDown(KeyCode.H))
         {      

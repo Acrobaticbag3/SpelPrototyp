@@ -1,3 +1,4 @@
+// Caspian
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {   
     public PlayerManager Player;
+    public LevelSystem levelsystem;
     public EnemyScriptableObject Enemy;
     private float maxHealth;
    [SerializeField] private float currHealth;
@@ -34,7 +36,7 @@ public class EnemyManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Player.TakeDamage(Enemy.Damage);
+            Player.TakeDamage(Enemy.Damage / PlayerStats.Armor);
         }
     }
   
@@ -44,6 +46,7 @@ public class EnemyManager : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        levelsystem.GainExp(Enemy.exp);
         //Particals
         //sound
         //whatever
