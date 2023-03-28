@@ -57,11 +57,9 @@ public class Movement : MonoBehaviour {
         } 
         
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && playerStamina.suffitiantStamina == true) {
-            while (true) {
-                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-                task = PlayerStamina.Task.jumping;
-            }
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && playerStamina.SuffitiantStamina == true) {
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            task = PlayerStamina.Task.jumping;
         }
     } 
 
@@ -78,8 +76,9 @@ public class Movement : MonoBehaviour {
         Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
         transform.rotation = Quaternion.LookRotation(transform.position - targetPosition);                       // Make the player look in the direction that the camera is faceing.
 
-        if (Input.GetKey(key: KeyCode.LeftShift) && playerStamina.suffitiantStamina == true) {
+        if (Input.GetKey(key: KeyCode.LeftShift) && playerStamina.SuffitiantStamina) {
             speed = sprintSpeed;
+            Debug.Log("Sprinting!");
             camera.fieldOfView = 90;
             task = PlayerStamina.Task.running;
         }

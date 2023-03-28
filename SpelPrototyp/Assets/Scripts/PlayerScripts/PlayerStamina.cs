@@ -22,7 +22,7 @@ public class PlayerStamina : MonoBehaviour {
     public float _currentStamina;
     public float _maxStamina = 400;
     private float _minStamina = 10.0f;
-    public bool suffitiantStamina;
+    public bool SuffitiantStamina => _currentStamina > _minStamina;
 
     // Stamina regen  \\
     private float staminaRegenAmount = 0.2f;
