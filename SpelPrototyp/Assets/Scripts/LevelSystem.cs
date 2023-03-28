@@ -11,7 +11,7 @@ public class LevelSystem : MonoBehaviour {
     private void Awake() {
         LvlupMenu.SetActive(false);
     }
-    public LevelSystem()
+    private void Start()
     {
         level = 0;
         currExp = 0;
@@ -39,6 +39,7 @@ public class LevelSystem : MonoBehaviour {
         {
             Time.timeScale = 1.0f;
             Cursor.visible = false;
+            GameManager.isPaused = false;
         }
     }
     public void LevelUp()
