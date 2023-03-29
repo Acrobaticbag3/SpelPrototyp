@@ -3358,14 +3358,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 135465152}
-    - target: {fileID: -6428679977927588406, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3893314935591866404, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Direction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -451443713529795448, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: Player
       value: 
@@ -3374,26 +3366,6 @@ PrefabInstance:
       propertyPath: levelsystem
       value: 
       objectReference: {fileID: 76217399}
-    - target: {fileID: 1373103856, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Height
-      value: 2.1726568
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373103856, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Center.x
-      value: -0.20983833
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373103856, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Center.y
-      value: 1.054675
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373103856, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Center.z
-      value: 0.0000045828206
-      objectReference: {fileID: 0}
-    - target: {fileID: 1373103856, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_Name
       value: Ghoul (2)
@@ -3442,14 +3414,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 111670102475343736, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Animation
-      value: 
-      objectReference: {fileID: 7400012, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
-    - target: {fileID: 2775763220543997222, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
 --- !u!1 &1915637721 stripped
@@ -3471,7 +3435,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentStamina: 0
   _maxStamina: 400
-  suffitiantStamina: 0
 --- !u!1 &2044392841
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ using TMPro;
 public class PlayerManager : MonoBehaviour
     
 {
-    LevelSystem level = new LevelSystem();
+    LevelSystem level;
  
     private float maxHealth = 100;
    [SerializeField] private float currHealth;
@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake() 
     {
         currHealth = maxHealth;
+        level = gameObject.AddComponent<LevelSystem>();
     }
     private void Update() 
     {

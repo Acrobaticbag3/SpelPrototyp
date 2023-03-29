@@ -15,6 +15,6 @@ MonoBehaviour:
   Health: 35
   Damage: 1
   AttackRange: 0
-  AggroRange: 0
+  AggroRange: 10
   Speed: 3
   exp: 100
