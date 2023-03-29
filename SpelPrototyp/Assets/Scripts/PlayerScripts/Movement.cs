@@ -3,7 +3,7 @@
 
     This script was made by kevin.
     
-    This script handles all movment related stuff
+    This script handles all movement related stuff
     for the player itself.
 
     === === === === === === === === === === === ===
@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour {
     public Task Task => task;
     PlayerStamina playerStamina;
 
-    // Colider \\
+    // Collider \\
     [SerializeField] private CapsuleCollider col;
 
     void Start() {
@@ -69,8 +69,8 @@ public class Movement : MonoBehaviour {
         float horizontalPlayerInput = Input.GetAxisRaw(axisName: "Horizontal");         // Gets horizontal input.
 
         float speed = this._speed;
-        Vector3 forwardRelativeVerticalInput = verticalPlayerInput * transform.forward * Time.fixedDeltaTime;         // Fixes relative movment for vertical movment. Note -transform is a temp fix
-        Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;         // Fixes relative movment for horizontal movment. Note -transform is a temp fix
+        Vector3 forwardRelativeVerticalInput = verticalPlayerInput * transform.forward * Time.fixedDeltaTime;         // Fixes relative movement for vertical movement. Note -transform is a temp fix
+        Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;         // Fixes relative movement for horizontal movement. Note -transform is a temp fix
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
         Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
