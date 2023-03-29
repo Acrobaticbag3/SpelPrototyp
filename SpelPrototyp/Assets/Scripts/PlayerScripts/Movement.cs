@@ -57,7 +57,7 @@ public class Movement : MonoBehaviour {
         } 
         
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && playerStamina.SuffitiantStamina == true) {
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && playerStamina.SuffitiantStamina) {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             task = PlayerStamina.Task.jumping;
         }
