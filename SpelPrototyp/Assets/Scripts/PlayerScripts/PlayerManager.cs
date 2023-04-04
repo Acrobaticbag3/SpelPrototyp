@@ -10,27 +10,24 @@
 */
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
 public class PlayerManager : MonoBehaviour
     
 {
-    LevelSystem level;
- 
+      
     private float maxHealth = 100;
-   [SerializeField] private float currHealth;
-   [SerializeField] private float currMaxHealth;
-   [SerializeField] private Slider healthBar;
-   [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private float currHealth;
+    [SerializeField] private float currMaxHealth;
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private TextMeshProUGUI healthText;
 
 
 
     private void Awake() 
     {
         currHealth = maxHealth;
-        level = gameObject.AddComponent<LevelSystem>();
     }
     private void Update() 
     {

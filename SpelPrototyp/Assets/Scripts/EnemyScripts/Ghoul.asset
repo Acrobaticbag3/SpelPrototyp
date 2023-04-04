@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 35
   Damage: 1
-  AttackRange: 0
+  AttackRange: 2.7
   AggroRange: 10
   Speed: 3
   exp: 100
