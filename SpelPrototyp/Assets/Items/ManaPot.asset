@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30ffb45a13b20949aa0db0bf5c42cc8, type: 3}
-  m_Name: Ghoul
+  m_Script: {fileID: 11500000, guid: d70eeb40d7fade746803164ac58d14ec, type: 3}
+  m_Name: ManaPot
   m_EditorClassIdentifier: 
-  Health: 35
-  Damage: 1
-  AttackRange: 2.7
-  AggroRange: 12.5
-  Speed: 3
-  exp: 100
+  id: 2
+  itemName: ManaPot
+  icon: {fileID: 1876961524, guid: aff75430bd98a4a41aeb7ad0ca8ca041, type: 3}

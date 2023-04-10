@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6501954027135341845}
   - component: {fileID: 4963553722899663923}
   - component: {fileID: 8230293957038204545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spell_MagicMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4127410618036216512}
   - component: {fileID: 4127410618036216518}
   - component: {fileID: 4127410618036216519}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4900,7 +4900,7 @@ GameObject:
   - component: {fileID: 4127410618360128198}
   - component: {fileID: 4127410618360128203}
   - component: {fileID: 4127410618360128196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MagicMissileGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

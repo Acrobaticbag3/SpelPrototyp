@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyScriptableObject Enemy;
     private float maxHealth;
    [SerializeField] private float currHealth;
+   private Transform target;
 
 
     private void Awake() 
@@ -19,8 +20,6 @@ public class EnemyManager : MonoBehaviour
         maxHealth = Enemy.Health;
         currHealth = maxHealth;
     }
-
-
 
     public void TakeDamage(float amount)
     {

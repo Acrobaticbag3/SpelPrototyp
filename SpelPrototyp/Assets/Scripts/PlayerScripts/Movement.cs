@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
-        camera.fieldOfView = 80;
+        camera.fieldOfView = 90;
 
         GameObject player = GameObject.Find("Player");
         playerStamina = player.GetComponent<PlayerStamina>();
@@ -65,6 +65,11 @@ public class Movement : MonoBehaviour {
 
     void FixedUpdate() {
 
+        // Everything after this code stops when paused 
+        // if code wants to be run even if pasued put before
+        if (GameManager.isPaused || GameManager.swtichingSpells) {
+            return;
+        } 
         float verticalPlayerInput = Input.GetAxisRaw(axisName: "Vertical");             // Gets vertical input.
         float horizontalPlayerInput = Input.GetAxisRaw(axisName: "Horizontal");         // Gets horizontal input.
 
@@ -79,11 +84,11 @@ public class Movement : MonoBehaviour {
         if (Input.GetKey(key: KeyCode.LeftShift) && playerStamina.SuffitiantStamina) {
             speed = sprintSpeed;
             Debug.Log("Sprinting!");
-            camera.fieldOfView = 90;
+            camera.fieldOfView = 100;
             task = PlayerStamina.Task.running;
         }
         else {
-            camera.fieldOfView = 80;
+            camera.fieldOfView = 90;
             task = PlayerStamina.Task.standing;
         }
 

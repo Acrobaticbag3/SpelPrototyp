@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3590771006077325994}
   - component: {fileID: 3390500620226055052}
   - component: {fileID: 1862395911500341566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spell_FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 5956271775692596596}
   - component: {fileID: 5956271775692596603}
   - component: {fileID: 5956271775692596602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireBallGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 5956271776373220735}
   - component: {fileID: 5956271776373220729}
   - component: {fileID: 5956271776373220728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

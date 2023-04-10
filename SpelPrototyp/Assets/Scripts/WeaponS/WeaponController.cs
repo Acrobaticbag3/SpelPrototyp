@@ -30,6 +30,11 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        // Everything after this code stops when paused 
+        // if code wants to be run even if pasued put before
+        if (GameManager.isPaused || GameManager.swtichingSpells) {
+            return;
+        } 
         AttackCD += Time.deltaTime;
 
 
