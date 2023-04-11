@@ -3709,7 +3709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1994560624
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3985,7 +3985,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00013443067, y: -0.00052968314}
-  m_SizeDelta: {x: -6.284, y: 0}
+  m_SizeDelta: {x: -6.284, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2119341105
 MonoBehaviour:
@@ -4050,7 +4050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1304492386449809645, guid: 4ef148cc880fa4540a30c551966edcb0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1304492386449809645, guid: 4ef148cc880fa4540a30c551966edcb0, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4058,7 +4058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1304492386449809645, guid: 4ef148cc880fa4540a30c551966edcb0, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1304492386449809645, guid: 4ef148cc880fa4540a30c551966edcb0, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4098,11 +4098,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1304492386449809645, guid: 4ef148cc880fa4540a30c551966edcb0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1304492386449809645, guid: 4ef148cc880fa4540a30c551966edcb0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 1304492386449809645, guid: 4ef148cc880fa4540a30c551966edcb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4217,7 +4217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2988542195477158894, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 2988542195477158894, guid: 6dd6c6bdc1b48ad4e8b3409a07383064, type: 3}
       propertyPath: m_LocalPosition.y
