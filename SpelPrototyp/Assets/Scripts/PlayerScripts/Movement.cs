@@ -57,7 +57,7 @@ public class Movement : MonoBehaviour {
         } 
         
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0 && playerStamina.SuffitiantStamina) {
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y >= 0.1f && playerStamina.SuffitiantStamina) {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             task = PlayerStamina.Task.jumping;
         }
@@ -79,7 +79,10 @@ public class Movement : MonoBehaviour {
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
         Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
-        transform.rotation = Quaternion.LookRotation(transform.position - targetPosition);                       // Make the player look in the direction that the camera is faceing.
+        transform.rotation = Quaternion.LookRotation(transform.position - targetPosition); 
+        var rot = transform.eulerAngles;
+        rot.x = 0;
+        transform.eulerAngles = rot;                      // Make the player look in the direction that the camera is faceing.
 
         if (Input.GetKey(key: KeyCode.LeftShift) && playerStamina.SuffitiantStamina) {
             speed = sprintSpeed;
