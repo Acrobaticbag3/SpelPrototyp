@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 {
       
     private float maxHealth = 100;
-    [SerializeField] private float currHealth;
+    [SerializeField] public float currHealth;
     [SerializeField] private float currMaxHealth;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
@@ -45,6 +45,11 @@ public class PlayerManager : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void HealPlayer(float amount)
+    {
+        currHealth += amount;
     }
 
 

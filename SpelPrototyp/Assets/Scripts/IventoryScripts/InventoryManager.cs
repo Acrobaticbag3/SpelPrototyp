@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using UnityEngine.Events;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -70,11 +72,30 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(IventoryItem, ItemContent);
+            var button = obj.GetComponent<Button>();
+
             var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemSprite").GetComponent<Image>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
+            // button.onClick.AddListener(GetButtonAction(1));
         }
     }
-}
+    /*
+    UnityAction<I GetButtonAction(int id){
+        UnityAction<ItemUsage> action;
+        switch(id){
+            case 1:
+            Debug.Log("pot");
+                return new UnityAction<ItemUsage>(ItemUsage.UseHealthPotion);
+            
+        }
+
+        return DoNothing;
+    }
+
+    void DoNothing(){}
+
+    */
+} // tryck på item i inv caller button på item 
