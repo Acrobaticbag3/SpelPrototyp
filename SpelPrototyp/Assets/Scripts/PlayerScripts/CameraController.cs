@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour {
         Vector3 rot = transform.localRotation.eulerAngles;
         yAxisRot = rot.y;
         xAxisRot = rot.x;
-        Cursor.visible = false;
+        // Cursor.visible = false;
 
         #endregion
     }

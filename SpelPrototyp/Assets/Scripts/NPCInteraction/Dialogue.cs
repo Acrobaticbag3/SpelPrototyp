@@ -4,10 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Dialogue {
+    public string npcName;
 
-	public string name;
-
-	[TextArea(3, 10)]
-	public string[] sentences;
-
+    [TextArea(4, 12)]
+    public string[] sentences;
 }

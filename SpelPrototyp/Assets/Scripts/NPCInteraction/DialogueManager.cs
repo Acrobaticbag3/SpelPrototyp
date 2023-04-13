@@ -1,56 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour {
-    public Text nameText;
-	public Text dialogueText;
+    public TextMeshProUGUI nametext;
+    public TextMeshProUGUI dialogueText;
+    public bool isDoneInteracting = false;
 
-	// public Animator animator;
+    private Queue<string> sentences = new Queue<string>();
 
-	private Queue<string> sentences = new Queue<string>();
+    // Start is called before the first frame update
+    public void StartInteraction(Dialogue dialogue) {
+        nametext.text = dialogueText.text;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+        sentences.Clear();
 
-	public void StartDialogue (Dialogue dialogue) {
-		// animator.SetBool("IsOpen", true);
+        foreach(string sentence in dialogue.sentences) {
+            sentences.Enqueue(sentence);
+        }
 
-		nameText.text = dialogue.name;
+        ContinueInteraction();
+    }
 
-		sentences.Clear();
+    public void ContinueInteraction() {
+        if (sentences.Count == 0) {
+            EndDialogue();
+            isDoneInteracting = true;
+            return;
+        }
+        isDoneInteracting = false;
 
-		foreach (string sentence in dialogue.sentences) {
-			sentences.Enqueue(sentence);
-		}
+        string sentence = sentences.Dequeue();
+        dialogueText.text = sentence;
+    }
 
-		DisplayNextSentence();
-	}
-
-	public void DisplayNextSentence() {
-		if (sentences.Count == 0) {
-			EndDialogue();
-			return;
-		}
-
-		string sentence = sentences.Dequeue();
-		StopAllCoroutines();
-		StartCoroutine(TypeSentence(sentence));
-	}
-
-	IEnumerator TypeSentence (string sentence) {
-		dialogueText.text = "";
-		foreach (char letter in sentence.ToCharArray()) {
-			dialogueText.text += letter;
-			yield return null;
-		}
-	}
-
-	void EndDialogue() {
-		// animator.SetBool("IsOpen", false);
-        return;
-	}
+    private void EndDialogue() {
+        Debug.Log("End Of Interaction");
+    }
 }
