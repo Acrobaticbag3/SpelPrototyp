@@ -79,23 +79,29 @@ public class InventoryManager : MonoBehaviour
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
-            // button.onClick.AddListener(GetButtonAction(1));
+            button.onClick.AddListener(GetButtonAction(item.id));
         }
     }
-    /*
-    UnityAction<I GetButtonAction(int id){
-        UnityAction<ItemUsage> action;
+    
+    UnityAction GetButtonAction(int id){
+        UnityAction action;
         switch(id){
             case 1:
-            Debug.Log("pot");
-                return new UnityAction<ItemUsage>(ItemUsage.UseHealthPotion);
-            
+                action = ItemUsage.UseHealthPotion;
+            break;
+
+            case 2: 
+                action = ItemUsage.UseManaPotion;
+                break;
+            default:
+            action = DoNothing;
+            break;
         }
 
-        return DoNothing;
+        return action;
     }
 
     void DoNothing(){}
 
-    */
+    
 } // tryck på item i inv caller button på item 
