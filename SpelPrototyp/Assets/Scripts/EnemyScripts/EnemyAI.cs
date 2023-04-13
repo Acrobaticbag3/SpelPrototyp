@@ -46,9 +46,6 @@ public class EnemyAI : MonoBehaviour
         
     }   
 
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, enemy.AttackRange);
-    }
 
 
     private void Move()
