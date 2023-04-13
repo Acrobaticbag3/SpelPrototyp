@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour {
             isDoneInteracting = true;
             return;
         }
+        isDoneInteracting = false;
 
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
