@@ -14,6 +14,8 @@ public class InventoryManager : MonoBehaviour
     private bool invActive = false;
     public List<ItemScriptableObejct> Items = new List<ItemScriptableObejct>();
 
+    public ItemController[] InventoryItems;
+
 
     public Transform ItemContent;
     public GameObject IventoryItem;
@@ -57,9 +59,10 @@ public class InventoryManager : MonoBehaviour
         Items.Add(item);
     }
 
-    public void Remove(ItemScriptableObejct item)
+    public bool Remove(ItemScriptableObejct item)
     {
-        Items.Remove(item);
+        foreach(var i in Items) Debug.Log(item );
+        return Items.Remove(item);
     }
 
     public void ListItems()
@@ -80,6 +83,18 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             button.onClick.AddListener(GetButtonAction(item.id));
+
+            SetInventoryItems();
+        }
+    }
+
+    public void SetInventoryItems()
+    {
+        InventoryItems = ItemContent.GetComponentsInChildren<ItemController>();
+
+        for(int i = 0; i < Items.Count; i++)
+        {
+            InventoryItems[i].AddItem(Items[i]);
         }
     }
     
@@ -88,6 +103,7 @@ public class InventoryManager : MonoBehaviour
         switch(id){
             case 1:
                 action = ItemUsage.UseHealthPotion;
+
             break;
 
             case 2: 

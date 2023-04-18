@@ -1,4 +1,3 @@
-// Caspian
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine;
     //Caspian
 public class EnemyManager : MonoBehaviour
 {   
-    public PlayerManager Player;
+    private PlayerManager Player;
     public LevelSystem levelsystem;
     public EnemyScriptableObject Enemy;
     private float maxHealth;
@@ -19,6 +18,12 @@ public class EnemyManager : MonoBehaviour
     {   
         maxHealth = Enemy.Health;
         currHealth = maxHealth;
+    }
+
+    private void Start() 
+    {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        levelsystem = GameObject.FindGameObjectWithTag("LevelSystem").GetComponent<LevelSystem>();
     }
 
     public void TakeDamage(float amount)
