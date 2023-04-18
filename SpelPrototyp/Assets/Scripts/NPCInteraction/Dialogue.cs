@@ -8,4 +8,7 @@ public class Dialogue {
 
     [TextArea(4, 12)]
     public string[] sentences;
+
+    [TextArea(2, 6)]
+    private string[] btnResponse; // Responses foe the player
 }

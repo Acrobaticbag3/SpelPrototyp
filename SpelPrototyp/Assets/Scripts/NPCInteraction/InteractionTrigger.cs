@@ -8,22 +8,24 @@ public class InteractionTrigger : MonoBehaviour {
     [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject Iconussy;
-    [SerializeField] private bool IsHidden;
+    [SerializeField] private GameObject interactContainer;
+    [SerializeField] private GameObject interactContainerDialouge;
+    public bool isPressed = false;
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.E)) {
+            isPressed = true;
             float interactionRange = 2f;
             Collider[] colliderArr = Physics.OverlapSphere(transform.position, interactionRange);
             foreach (Collider collider in colliderArr) {
                 if(collider.TryGetComponent(out InteractableNPC interactableNPC)) {
+                    interactContainerDialouge.SetActive(true);
+                    interactContainer.SetActive(false);
                     interactableNPC.Interact();
                 }
             }
-            background.SetActive(true);
-            IsHidden = true;
-        } else if(dialogueManager.isDoneInteracting) {
-            background.SetActive(false);
-            IsHidden = true;
+        } else {
+            isPressed = false;
         }
     }
 

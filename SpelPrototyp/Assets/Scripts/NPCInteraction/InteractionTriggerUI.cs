@@ -7,6 +7,7 @@ using static DialogueManager;
 
 public class InteractionTriggerUI : MonoBehaviour {
     [SerializeField] private GameObject interactContainer;
+    [SerializeField] private GameObject interactContainerDialouge;
     [SerializeField] private InteractionTrigger interactionTrigger;
     [SerializeField] private TextMeshProUGUI interactTextMeshProUGUI;
     private DialogueManager dialogueManager;
@@ -16,17 +17,18 @@ public class InteractionTriggerUI : MonoBehaviour {
         dialogueManager = player.GetComponent<DialogueManager>();
     }
 
-    private void Update() {
-        if(interactionTrigger.GetInteractableObject() != null) {
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag == "NPC" && interactionTrigger.isPressed == false) {
             ShowText(interactionTrigger.GetInteractableObject());
-        } else {
+        } 
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.tag == "NPC") {
+            interactContainerDialouge.SetActive(false);
             HideText();
         }
-
-      //  if(dialogueManager.isDoneInteracting == true) {
-                
-       // }
-    } 
+    }
 
     private void ShowText(InteractableNPC interactableNPC) {
         interactContainer.SetActive(true);
@@ -34,15 +36,6 @@ public class InteractionTriggerUI : MonoBehaviour {
     }
 
     private void HideText() {
-        interactContainer.SetActive(false);
-    }
-
-    private void ShowTextDialogue(InteractableNPC interactableNPC) {
-        interactContainer.SetActive(true);
-        interactTextMeshProUGUI.text = interactableNPC.GetInteractionText();
-    }
-
-    private void HideTextDialouge() {
         interactContainer.SetActive(false);
     }
 }
