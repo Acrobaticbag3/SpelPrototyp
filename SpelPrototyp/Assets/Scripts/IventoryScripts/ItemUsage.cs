@@ -7,7 +7,7 @@ public class ItemUsage : MonoBehaviour
 
     public static PlayerManager player;
     public static InventoryManager inv;
-    public static ItemController item;
+    public static InvItemController item;
   
 
 
@@ -15,7 +15,7 @@ public class ItemUsage : MonoBehaviour
 
     private void Start() {
         player = GetComponent<PlayerManager>();
-       // inv = InvetoryManager.GetComponen<>();
+
     }
 
     static public void UseHealthPotion()

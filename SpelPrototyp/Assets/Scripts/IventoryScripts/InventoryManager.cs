@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     private bool invActive = false;
     public List<ItemScriptableObejct> Items = new List<ItemScriptableObejct>();
 
-    public ItemController[] InventoryItems;
+    public InvItemController[] InventoryItems;
 
 
     public Transform ItemContent;
@@ -59,10 +59,9 @@ public class InventoryManager : MonoBehaviour
         Items.Add(item);
     }
 
-    public bool Remove(ItemScriptableObejct item)
-    {
-        foreach(var i in Items) Debug.Log(item );
-        return Items.Remove(item);
+    public void Remove(ItemScriptableObejct item)
+    {   
+        Items.Remove(item);
     }
 
     public void ListItems()
@@ -79,31 +78,22 @@ public class InventoryManager : MonoBehaviour
 
             var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemSprite").GetComponent<Image>();
+            var removeButton = obj.transform.Find("Remove").GetComponent<Button>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
-            button.onClick.AddListener(GetButtonAction(item.id));
-
-            SetInventoryItems();
+           // button.onClick.AddListener(GetButtonAction(item.id));
         }
+
+        SetInventoryItems();
     }
 
-    public void SetInventoryItems()
-    {
-        InventoryItems = ItemContent.GetComponentsInChildren<ItemController>();
-
-        for(int i = 0; i < Items.Count; i++)
-        {
-            InventoryItems[i].AddItem(Items[i]);
-        }
-    }
     
-    UnityAction GetButtonAction(int id){
+    /*UnityAction GetButtonAction(int id){
         UnityAction action;
         switch(id){
             case 1:
                 action = ItemUsage.UseHealthPotion;
-
             break;
 
             case 2: 
@@ -116,8 +106,18 @@ public class InventoryManager : MonoBehaviour
 
         return action;
     }
-
+ */
     void DoNothing(){}
+
+    public void SetInventoryItems()
+    {
+        InventoryItems = ItemContent.GetComponentsInChildren<InvItemController>();
+
+        for(int i = 0; i < Items.Count; i++)
+        {
+            InventoryItems[i].AddItem(Items[i]);
+        }
+    }
 
     
 } // tryck på item i inv caller button på item 
