@@ -6,7 +6,9 @@ using TMPro;
 public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI nametext;
     public TextMeshProUGUI dialogueText;
+
     public bool isDoneInteracting = false;
+    [SerializeField] private GameObject interactContainerDialouge;
 
     private Queue<string> sentences = new Queue<string>();
 
@@ -27,6 +29,7 @@ public class DialogueManager : MonoBehaviour {
         if (sentences.Count == 0) {
             EndDialogue();
             isDoneInteracting = true;
+            interactContainerDialouge.SetActive(false);
             return;
         }
         isDoneInteracting = false;

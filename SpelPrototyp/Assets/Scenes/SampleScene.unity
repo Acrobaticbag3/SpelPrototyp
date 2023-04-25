@@ -3720,6 +3720,8 @@ GameObject:
   - component: {fileID: 1695765975}
   - component: {fileID: 1695765974}
   - component: {fileID: 1695765982}
+  - component: {fileID: 1695765983}
+  - component: {fileID: 1695765984}
   m_Layer: 3
   m_Name: NPC
   m_TagString: NPC
@@ -3837,7 +3839,31 @@ MonoBehaviour:
     - Pretend that there is an interesting text.
     - Once again pretend that there is an interesting text.
     - You know what to do, pretend that there is an interesting text.
-  interactionText: Strager
+  interactionText: Stranger
+--- !u!114 &1695765983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695765973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdde5760e83aeb1469e6aa92f93770bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1695765984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695765973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387606a2f99f02b4cafa0232d5c0ddc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746373646
 GameObject:
   m_ObjectHideFlags: 0
@@ -5107,6 +5133,7 @@ MonoBehaviour:
   nametext: {fileID: 1983421587}
   dialogueText: {fileID: 243162751}
   isDoneInteracting: 0
+  interactContainerDialouge: {fileID: 87188152}
 --- !u!136 &2024667532
 CapsuleCollider:
   m_ObjectHideFlags: 0
