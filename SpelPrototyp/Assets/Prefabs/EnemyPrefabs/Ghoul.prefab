@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105316436}
   m_LocalRotation: {x: -0.67092556, y: 0.37665614, z: 0.4455258, w: 0.4577073}
-  m_LocalPosition: {x: 0.345, y: 0.169, z: -0.035}
+  m_LocalPosition: {x: -0.313, y: -0.046, z: -0.236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226421076}
   - component: {fileID: 1226421077}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AggroCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373103854}
   m_LocalRotation: {x: 0.18170454, y: 0.1817047, z: 0.6833619, w: 0.6833619}
-  m_LocalPosition: {x: 0.009670674, y: 0.0000027567141, z: -0.29782155}
+  m_LocalPosition: {x: -0.61, y: -0, z: -0.099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1092,7 +1092,7 @@ Transform:
   m_GameObject: {fileID: 1309486516299566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.008842, y: 0.62827015, z: -11.92}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4637244262425910}
@@ -1137,9 +1137,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.029336
-  m_Height: 4.0075855
+  m_Height: 3.8469787
   m_Direction: 1
-  m_Center: {x: 0, y: 1.9008293, z: 0.6575594}
+  m_Center: {x: 0, y: 1.9811327, z: 0.6575594}
 --- !u!114 &-451443713529795448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,8 +1152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84d356b9c36bd247958a1817e3b88ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  levelsystem: {fileID: 0}
+  playerGameObject: {fileID: 0}
+  levelsystemGameObejct: {fileID: 0}
   Enemy: {fileID: 11400000, guid: 611893d9ac85ae147ade07a0494e1cff, type: 2}
   currHealth: 0
 --- !u!114 &-6428679977927588406
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 611893d9ac85ae147ade07a0494e1cff, type: 2}
-  player: {fileID: 0}
+  playerGameObject: {fileID: 0}
 --- !u!54 &2775763220543997222
 Rigidbody:
   m_ObjectHideFlags: 0

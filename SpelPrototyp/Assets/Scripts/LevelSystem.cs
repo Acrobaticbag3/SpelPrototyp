@@ -16,6 +16,7 @@ public class LevelSystem : MonoBehaviour {
         level = 0;
         currExp = 0;
         reqExp = 100;
+        
     }
 
     public void GainExp(int amount)
@@ -28,7 +29,7 @@ public class LevelSystem : MonoBehaviour {
     }
     
     private void Update() 
-    {
+    {   
         if(LvlupMenu.activeSelf)
         {
             Time.timeScale = 0.0f;

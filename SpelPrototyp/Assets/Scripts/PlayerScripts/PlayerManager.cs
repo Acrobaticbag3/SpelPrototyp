@@ -22,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float currMaxHealth;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
+    public PlayerMagic magic;
 
 
 
@@ -50,6 +51,10 @@ public class PlayerManager : MonoBehaviour
     public void HealPlayer(float amount)
     {
         currHealth += amount;
+    }
+    public void ManaPot(float amount)
+    {
+        magic.currentMana += amount;
     }
 
 

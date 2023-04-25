@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public EnemyScriptableObject enemy;
-    public PlayerManager player;
+    private PlayerManager player;
+    
     private Animation anim;
     private float attacktimer = 0f;
     private Transform target;
@@ -18,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animation>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame

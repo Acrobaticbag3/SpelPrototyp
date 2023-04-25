@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - NPC
   - Item
+  - LevelSystem
+  - Canvas
+  - LevelUpMenu
   layers:
   - Default
   - TransparentFX
