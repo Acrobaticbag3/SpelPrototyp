@@ -16,7 +16,6 @@ using UnityEngine.UI;
 using static PlayerStamina;
 
 public class Movement : MonoBehaviour {
-
     private Rigidbody rb;
     [SerializeField] private Camera camera;
 
@@ -64,7 +63,6 @@ public class Movement : MonoBehaviour {
     } 
 
     void FixedUpdate() {
-
         // Everything after this code stops when paused 
         // if code wants to be run even if pasued put before
         if (GameManager.isPaused || GameManager.swtichingSpells) {
