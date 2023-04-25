@@ -11,21 +11,21 @@ public class ItemUsage : MonoBehaviour
   
 
 
-    //public staic InventoryManager inv;
+   
 
-    private void Start() {
+    private void Start() 
+    {
         player = GetComponent<PlayerManager>();
-
     }
 
     static public void UseHealthPotion()
     {   
+        Debug.Log("Used Hppot");
         player.HealPlayer(30);
-        item.RemoveItem();
     }
     static public void UseManaPotion()
     {
-        Debug.Log("po1");
+        Debug.Log("USed manapot");
         player.ManaPot(30);
     }
 }

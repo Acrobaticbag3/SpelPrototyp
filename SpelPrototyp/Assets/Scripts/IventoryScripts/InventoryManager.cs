@@ -74,50 +74,24 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(IventoryItem, ItemContent);
-            var button = obj.GetComponent<Button>();
+            obj.GetComponent<InvItemController>().item = item;
 
             var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemSprite").GetComponent<Image>();
-            var removeButton = obj.transform.Find("Remove").GetComponent<Button>();
+
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
-           // button.onClick.AddListener(GetButtonAction(item.id));
+           
         }
 
-        SetInventoryItems();
+
     }
 
     
-    /*UnityAction GetButtonAction(int id){
-        UnityAction action;
-        switch(id){
-            case 1:
-                action = ItemUsage.UseHealthPotion;
-            break;
-
-            case 2: 
-                action = ItemUsage.UseManaPotion;
-                break;
-            default:
-            action = DoNothing;
-            break;
-        }
-
-        return action;
-    }
- */
+  
     void DoNothing(){}
 
-    public void SetInventoryItems()
-    {
-        InventoryItems = ItemContent.GetComponentsInChildren<InvItemController>();
-
-        for(int i = 0; i < Items.Count; i++)
-        {
-            InventoryItems[i].AddItem(Items[i]);
-        }
-    }
 
     
-} // tryck på item i inv caller button på item 
+} 

@@ -5,30 +5,33 @@ using UnityEngine.UI;
 
 public class InvItemController : MonoBehaviour
 {
-    ItemScriptableObejct item;
+    public ItemScriptableObejct item;
+    public PlayerManager player;
 
-    public Button RemoveBut;
+
+    private void Start() 
+    {
+        player = GetComponentInChildren<PlayerManager>();
+    }
+
     public void RemoveItem()
     {
-        Debug.Log("remove");
         InventoryManager.Instance.Remove(item);
         Destroy(gameObject);
     }
 
-    public void AddItem(ItemScriptableObejct newItem)
-    {
-        item = newItem;
-    }
 
     public void UseItem()
-    {
+    {   
         switch (item.id)
         {
             case 1:
-            ItemUsage.UseHealthPotion();
+                Debug.Log("healded");
+                ItemUsage.UseHealthPotion();
                 break;
             case 2:
-            ItemUsage.UseManaPotion();
+                Debug.Log("mana");
+                ItemUsage.UseManaPotion();
                 break;
         }
     }
