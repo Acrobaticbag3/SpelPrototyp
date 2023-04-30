@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour {
     private float turnSpeed = 5.0f;
 
     public Transform target;
-    private float targetDistance = 2.5f;
+    private float targetDistance = 3f;
 
     private float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;

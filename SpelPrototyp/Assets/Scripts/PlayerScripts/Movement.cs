@@ -37,6 +37,8 @@ public class Movement : MonoBehaviour {
     public Task Task => task;
     PlayerStamina playerStamina;
 
+    public PlayerAnimations anim;
+
     // Collider \\
     [SerializeField] private CapsuleCollider col;
 
@@ -46,6 +48,7 @@ public class Movement : MonoBehaviour {
 
         GameObject player = GameObject.Find("Player");
         playerStamina = player.GetComponent<PlayerStamina>();
+
     }
 
     void Update() {   
@@ -73,7 +76,11 @@ public class Movement : MonoBehaviour {
 
         float speed = this._speed;
         Vector3 forwardRelativeVerticalInput = verticalPlayerInput * transform.forward * Time.fixedDeltaTime;         // Fixes relative movement for vertical movement. Note -transform is a temp fix
-        Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;         // Fixes relative movement for horizontal movement. Note -transform is a temp fix
+        Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;  
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+        
+        }     // Fixes relative movement for horizontal movement. Note -transform is a temp fix
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
         Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
@@ -84,13 +91,14 @@ public class Movement : MonoBehaviour {
 
         if (Input.GetKey(key: KeyCode.LeftShift) && playerStamina.SuffitiantStamina) {
             speed = sprintSpeed;
-            Debug.Log("Sprinting!");
             camera.fieldOfView = 100;
             task = PlayerStamina.Task.running;
+            anim.Run();
         }
         else {
             camera.fieldOfView = 90;
             task = PlayerStamina.Task.standing;
+            anim.Idle();
         }
 
         transform.Translate(translation: cameraRelativeMovement * speed * Time.deltaTime, relativeTo: Space.World);

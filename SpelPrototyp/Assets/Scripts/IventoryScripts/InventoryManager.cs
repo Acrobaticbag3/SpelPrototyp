@@ -14,9 +14,6 @@ public class InventoryManager : MonoBehaviour
     private bool invActive = false;
     public List<ItemScriptableObejct> Items = new List<ItemScriptableObejct>();
 
-    public InvItemController[] InventoryItems;
-
-
     public Transform ItemContent;
     public GameObject IventoryItem;
 
@@ -86,12 +83,5 @@ public class InventoryManager : MonoBehaviour
         }
 
 
-    }
-
-    
-  
-    void DoNothing(){}
-
-
-    
+    } 
 } 

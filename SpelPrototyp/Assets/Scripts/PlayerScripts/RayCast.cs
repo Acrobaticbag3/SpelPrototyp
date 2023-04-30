@@ -18,7 +18,6 @@ public class RayCast : MonoBehaviour
     {
         ray = new Ray(transform.position, transform.forward);
 
-
         if (Physics.Raycast(ray, out hit, raycastLength, layerstohit))
         {   
             ItemPickUp item = hit.collider.GetComponent<ItemPickUp>();

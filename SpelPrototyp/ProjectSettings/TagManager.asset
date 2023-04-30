@@ -12,6 +12,7 @@ TagManager:
   - LevelSystem
   - Canvas
   - LevelUpMenu
+  - Door
   layers:
   - Default
   - TransparentFX
