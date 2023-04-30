@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour {
         dialogueText.text = sentence;
     }
 
-    private void EndDialogue() {
+    public void EndDialogue() {
         Debug.Log("End Of Interaction");
     }
 }

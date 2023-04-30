@@ -25,7 +25,7 @@ public class PlayerStamina : MonoBehaviour {
     public bool SuffitiantStamina => _currentStamina > _minStamina;
 
     // Stamina regen  \\
-    private float staminaRegenAmount = 0.2f;
+    private float staminaRegenAmount = 1f;
     private float regenTimerInSeconds = 1.0f;
 
     // referenscase  \\

@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour {
     public Task Task => task;
     PlayerStamina playerStamina;
 
-    public PlayerAnimations anim;
+    
 
     // Collider \\
     [SerializeField] private CapsuleCollider col;
@@ -77,10 +77,7 @@ public class Movement : MonoBehaviour {
         float speed = this._speed;
         Vector3 forwardRelativeVerticalInput = verticalPlayerInput * transform.forward * Time.fixedDeltaTime;         // Fixes relative movement for vertical movement. Note -transform is a temp fix
         Vector3 rightRelativeHorizontalInput = horizontalPlayerInput * transform.right * Time.fixedDeltaTime;  
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-        
-        }     // Fixes relative movement for horizontal movement. Note -transform is a temp fix
+        // Fixes relative movement for horizontal movement. Note -transform is a temp fix
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;                           
         Vector3 targetPosition = new Vector3(camera.transform.position.x, 1, camera.transform.position.z);  
@@ -93,12 +90,10 @@ public class Movement : MonoBehaviour {
             speed = sprintSpeed;
             camera.fieldOfView = 100;
             task = PlayerStamina.Task.running;
-            anim.Run();
         }
         else {
             camera.fieldOfView = 90;
-            task = PlayerStamina.Task.standing;
-            anim.Idle();
+            task = PlayerStamina.Task.standing;    
         }
 
         transform.Translate(translation: cameraRelativeMovement * speed * Time.deltaTime, relativeTo: Space.World);
