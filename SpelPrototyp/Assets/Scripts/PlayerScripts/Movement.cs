@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour {
     public float jumpHeight = 1;
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
+    private bool isGrounded;
 
     // Axis for movement \\
     private float vertical;
@@ -48,7 +49,6 @@ public class Movement : MonoBehaviour {
 
         GameObject player = GameObject.Find("Player");
         playerStamina = player.GetComponent<PlayerStamina>();
-
     }
 
     void Update() {   
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour {
         } 
         
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y >= 0.1f && playerStamina.SuffitiantStamina) {
+        if (Input.GetKeyDown(KeyCode.Space) && playerStamina.SuffitiantStamina && isGrounded == true) {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             task = PlayerStamina.Task.jumping;
         }
@@ -71,6 +71,9 @@ public class Movement : MonoBehaviour {
         if (GameManager.isPaused || GameManager.swtichingSpells) {
             return;
         } 
+
+        GroundCheck();
+
         float verticalPlayerInput = Input.GetAxisRaw(axisName: "Vertical");             // Gets vertical input.
         float horizontalPlayerInput = Input.GetAxisRaw(axisName: "Horizontal");         // Gets horizontal input.
 
@@ -105,6 +108,18 @@ public class Movement : MonoBehaviour {
             col.height = Mathf.Min(1.8f, col.height + Time.deltaTime * 10.0f);
         }
         
+    }
+
+    void GroundCheck() {
+        RaycastHit hit;
+        float distance = 3f;
+        Vector3 dir = new Vector3(0, -1);
+
+        if(Physics.Raycast(transform.position, dir, out hit, distance)) {
+            isGrounded = true;
+        } else {
+            isGrounded = false;
+        }
     }
 
 }

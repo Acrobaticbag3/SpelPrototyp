@@ -26,7 +26,7 @@ public class PlayerStamina : MonoBehaviour {
 
     // Stamina regen  \\
     private float staminaRegenAmount = 1f;
-    private float regenTimerInSeconds = 1.0f;
+    private float regenTimerInSeconds = 3;
 
     // referenscase  \\
     private Movement movement;

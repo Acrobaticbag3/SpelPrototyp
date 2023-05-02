@@ -7,7 +7,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI nametext;
     public TextMeshProUGUI dialogueText;
-
+    public InteractionTrigger interactionTrigger; 
     public bool isDoneInteracting = false;
     [SerializeField] private GameObject interactContainerDialouge;
 
@@ -32,11 +32,13 @@ public class DialogueManager : MonoBehaviour {
             isDoneInteracting = true;
             interactContainerDialouge.SetActive(false);
             return;
+
+        } else if(isDoneInteracting == false) {
+            string sentence = sentences.Dequeue();
+            dialogueText.text = sentence;
+
         }
         isDoneInteracting = false;
-
-        string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
     }
 
     public void EndDialogue() {
