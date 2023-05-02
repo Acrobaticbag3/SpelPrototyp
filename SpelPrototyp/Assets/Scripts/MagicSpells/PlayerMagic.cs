@@ -95,7 +95,7 @@ public class PlayerMagic : MonoBehaviour
     {
         SpellCircle.SetActive(true);
         Time.timeScale = 0f;
-        Cursor.visible = true;
+        
         GameManager.swtichingSpells = true;
         /*
         spellToCast = spellList[0];
@@ -105,7 +105,7 @@ public class PlayerMagic : MonoBehaviour
     {
         SpellCircle.SetActive(false);
         Time.timeScale = 1; 
-        Cursor.visible = false;
+       
         GameManager.swtichingSpells = false;
     }
 

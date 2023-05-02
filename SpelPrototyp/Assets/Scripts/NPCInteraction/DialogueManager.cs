@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+    //Kevin
 public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI nametext;
     public TextMeshProUGUI dialogueText;

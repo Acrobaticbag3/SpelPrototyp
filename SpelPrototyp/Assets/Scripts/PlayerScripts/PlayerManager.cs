@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour
         currMaxHealth = maxHealth * PlayerStats.HealthAmp;  
         healthBar.maxValue = currMaxHealth;
         healthText.text = healthBar.value.ToString();
+        Cursor.visible = true;
     }
     
     public void TakeDamage(float amount)

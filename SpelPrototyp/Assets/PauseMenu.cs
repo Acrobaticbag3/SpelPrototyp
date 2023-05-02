@@ -1,3 +1,5 @@
+//Caspian
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,14 +23,14 @@ public class PauseMenu : MonoBehaviour
             GameManager.isPaused = true;
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
-            Cursor.visible = true;
+           
         } 
         else if(Input.GetKeyDown(KeyCode.Escape) && GameManager.isPaused == true)
         {
             GameManager.isPaused = false;
             pauseMenu.SetActive(false); 
             Time.timeScale = 1f;
-            Cursor.visible = false;
+            
         }
         
     }
@@ -36,14 +38,12 @@ public class PauseMenu : MonoBehaviour
     {
         GameManager.isPaused = false;
         pauseMenu.SetActive(false); 
-        Cursor.visible = false;
     }
 
     public void Controls()
     {
         KeyMap.SetActive(true);
         pauseMenu.SetActive(false);
-        Cursor.visible = true; 
     }
 
     public void BackToPause()

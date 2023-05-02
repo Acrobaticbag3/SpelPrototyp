@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+    //Caspian
 [CreateAssetMenu(menuName = "New Item")]
 public class ItemScriptableObejct : ScriptableObject
 {
@@ -8,12 +10,4 @@ public class ItemScriptableObejct : ScriptableObject
     public Sprite icon;
 
     public int value;
-
-    public ItemType itemType;
-
-    public enum ItemType
-    {
-        Potion,
-        Book
-    }
 }

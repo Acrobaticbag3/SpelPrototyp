@@ -1,3 +1,6 @@
+//Caspian
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +8,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.Events;
-
+ 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+    //Kevin
 [System.Serializable]
 public class Dialogue {
     public string npcName;
