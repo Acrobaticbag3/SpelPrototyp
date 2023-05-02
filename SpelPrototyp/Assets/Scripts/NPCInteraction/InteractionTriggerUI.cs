@@ -15,6 +15,7 @@ public class InteractionTriggerUI : MonoBehaviour {
     void Start() {
         GameObject player = GameObject.Find("Player");
         dialogueManager = player.GetComponent<DialogueManager>();
+        HideText();
     }
 
     private void OnTriggerEnter(Collider other) {

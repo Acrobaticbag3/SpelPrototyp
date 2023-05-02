@@ -54,6 +54,9 @@ public class EnemyAI : MonoBehaviour
     {
         Vector3 direction = target.position - transform.position;
         direction.y = transform.position.y;
+        var rot = transform.eulerAngles;
+        rot.x = 0;
+        transform.eulerAngles = rot; 
         Vector3 velocity = direction.normalized * enemy.Speed * 1f/60f;
         transform.position += velocity;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(velocity), enemy.Speed * Time.deltaTime);
@@ -69,9 +72,14 @@ public class EnemyAI : MonoBehaviour
     {   
         Vector3 direction = player.transform.position - transform.position;
         direction.y = transform.position.y;
+        var rot = transform.eulerAngles;
+        rot.x = 0;
+        transform.eulerAngles = rot; 
         Vector3 velocity = direction.normalized * enemy.Speed * 1f/60f;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(velocity), enemy.Speed * Time.deltaTime);
         anim.Play("Attack1");
+        anim.Play("Attack");
+        
     }
 
     private void OnTriggerEnter(Collider other) {

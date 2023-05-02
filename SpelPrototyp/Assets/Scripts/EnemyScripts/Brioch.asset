@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a30ffb45a13b20949aa0db0bf5c42cc8, type: 3}
-  m_Name: Ghoul
+  m_Name: Brioch
   m_EditorClassIdentifier: 
-  Health: 35
-  Damage: 7
-  AttackRange: 2.7
-  AggroRange: 15
-  Speed: 3
-  exp: 50
+  Health: 200
+  Damage: 15
+  AttackRange: 3
+  AggroRange: 50
+  Speed: 5
+  exp: 100
