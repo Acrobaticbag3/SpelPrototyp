@@ -12,6 +12,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
+using System.Linq;
 
 public class PlayerManager : MonoBehaviour
     
@@ -24,11 +26,19 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     public PlayerMagic magic;
 
+    public List<Transform> respawnPoints;
+
+
+
+
 
 
     private void Awake() 
     {
         currHealth = maxHealth;
+        var respawn = GameObject.Find("RespawnPoints");
+        respawnPoints = respawn.GetComponentsInChildren<Transform>().ToList();
+        respawnPoints.RemoveAt(0);
     }
     private void Update() 
     {
@@ -58,10 +68,23 @@ public class PlayerManager : MonoBehaviour
         magic.currentMana += amount;
     }
 
+    private void Respawn()
+    { 
+        Vector3 closestPos = new Vector3(999999,999999,999999);  
+        foreach (var points in respawnPoints)
+        {
+            if(Vector3.Distance(transform.position, points.position) <  Vector3.Distance(transform.position,closestPos)){
+                closestPos = points.position;
+            }
+        } 
+        transform.position = closestPos;
+    }
+
 
      private void Die()
     {
         Debug.Log("Ded");
+        Respawn();
         //Particals
         //sound
         //whatever
