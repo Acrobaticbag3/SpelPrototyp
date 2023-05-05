@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &228831663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 228831664}
+  - component: {fileID: 228831665}
+  m_Layer: 11
+  m_Name: NPCCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &228831664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228831663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2988542195477158894}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &228831665
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228831663}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2988542194134683219
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +57,6 @@ GameObject:
   - component: {fileID: 2988542195477158894}
   - component: {fileID: 2988542195477158884}
   - component: {fileID: 2988542195477158885}
-  - component: {fileID: 2988542195477158882}
   - component: {fileID: 2988542195477158883}
   - component: {fileID: 2988542195477158880}
   - component: {fileID: 2988542195477158881}
@@ -24,7 +69,7 @@ GameObject:
   - component: {fileID: 2024667519}
   - component: {fileID: 1812325704786822021}
   - component: {fileID: 5841066018835299063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -46,6 +91,7 @@ Transform:
   - {fileID: 2988542195413745956}
   - {fileID: 2988542194891509062}
   - {fileID: 5841066018064975982}
+  - {fileID: 228831664}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,20 +145,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2988542195477158882
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988542194134683219}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2988542195477158883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +161,7 @@ MonoBehaviour:
   jumpHeight: 20
   gravityScale: 5
   fallingGravityScale: 40
-  col: {fileID: 2988542195477158882}
+  col: {fileID: 0}
 --- !u!54 &2988542195477158880
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -198,6 +230,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthText: {fileID: 0}
   magic: {fileID: 1371443892423311255}
+  respawnPoints: []
 --- !u!114 &1915637723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nametext: {fileID: 0}
   dialogueText: {fileID: 0}
+  interactionTrigger: {fileID: 0}
   isDoneInteracting: 0
   interactContainerDialouge: {fileID: 0}
 --- !u!114 &2024667519
@@ -329,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2988542194891509063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.296, y: 1.18, z: 0.851}
+  m_LocalPosition: {x: -0.296, y: 0.253, z: 1.999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

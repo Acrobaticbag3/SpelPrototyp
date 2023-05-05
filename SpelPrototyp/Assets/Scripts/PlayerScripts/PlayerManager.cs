@@ -78,6 +78,8 @@ public class PlayerManager : MonoBehaviour
             }
         } 
         transform.position = closestPos;
+
+        currHealth = currMaxHealth;
     }
 
 

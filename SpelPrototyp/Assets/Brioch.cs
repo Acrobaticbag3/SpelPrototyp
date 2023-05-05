@@ -20,5 +20,7 @@ public class Brioch : MonoBehaviour
         gameObject.SetActive(false);
         door.transform.Rotate(0, 89, 0, Space.Self);
       }    
-    }
+    } 
+  
 }
+ 

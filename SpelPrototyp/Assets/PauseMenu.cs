@@ -7,38 +7,47 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
-{   
+{
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject KeyMap;
 
 
-    private void Start() {
+    private void Start()
+    {
         pauseMenu.SetActive(false);
         KeyMap.SetActive(false);
     }
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape) && GameManager.isPaused == false)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.isPaused = true;
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0f;
-           
-        } 
-        else if(Input.GetKeyDown(KeyCode.Escape) && GameManager.isPaused == true)
-        {
-            GameManager.isPaused = false;
-            pauseMenu.SetActive(false); 
-            Time.timeScale = 1f;
-            
+            if (GameManager.isPaused == true)
+            {
+                resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
-        
     }
-    public void resume()
+
+
+    private void resume()
     {
         GameManager.isPaused = false;
-        pauseMenu.SetActive(false); 
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
+
+    private void Pause()
+    {
+        GameManager.isPaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
 
     public void Controls()
     {
@@ -49,7 +58,7 @@ public class PauseMenu : MonoBehaviour
     public void BackToPause()
     {
         KeyMap.SetActive(false);
-        pauseMenu.SetActive(true); 
+        pauseMenu.SetActive(true);
     }
 
     public void Exit()
@@ -57,3 +66,4 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 }
+

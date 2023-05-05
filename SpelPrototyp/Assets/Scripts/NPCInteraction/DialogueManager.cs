@@ -43,5 +43,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue() {
         Debug.Log("End Of Interaction");
+        sentences.Clear();
     }
 }
